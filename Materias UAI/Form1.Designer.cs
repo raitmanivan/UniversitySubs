@@ -31,6 +31,8 @@
             this.BotonSalir = new System.Windows.Forms.Button();
             this.BotonAdministrador = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SelectorDeAño1 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,6 +59,7 @@
             this.BotonIrAform = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1HOMOLOGADAoSinNota = new System.Windows.Forms.Label();
             this.labelNOTA = new System.Windows.Forms.Label();
             this.numericUpDownNOTAS = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.textBoxCambiarEstado = new System.Windows.Forms.TextBox();
             this.BotonEjecutar = new System.Windows.Forms.Button();
             this.comboBoxBusqueda = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label1HOMOLOGADAoSinNota = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SelectorDeAño1)).BeginInit();
@@ -114,6 +114,25 @@
             this.groupBox4.Size = new System.Drawing.Size(624, 591);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label12.Location = new System.Drawing.Point(391, 545);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Promedio:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(544, 545);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "PROMEDIO";
             // 
             // groupBox1
             // 
@@ -346,7 +365,7 @@
             this.groupBox5.Controls.Add(this.comboBoxBusqueda);
             this.groupBox5.Location = new System.Drawing.Point(649, 24);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(508, 591);
+            this.groupBox5.Size = new System.Drawing.Size(400, 591);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
             // 
@@ -358,14 +377,14 @@
             this.groupBox3.Controls.Add(this.BotonIrAform);
             this.groupBox3.Location = new System.Drawing.Point(17, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(446, 269);
+            this.groupBox3.Size = new System.Drawing.Size(377, 269);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Acciones";
             // 
             // BotonVerTodas
             // 
-            this.BotonVerTodas.Location = new System.Drawing.Point(154, 19);
+            this.BotonVerTodas.Location = new System.Drawing.Point(125, 39);
             this.BotonVerTodas.Name = "BotonVerTodas";
             this.BotonVerTodas.Size = new System.Drawing.Size(145, 41);
             this.BotonVerTodas.TabIndex = 7;
@@ -375,7 +394,7 @@
             // 
             // BotonVerAprobadas
             // 
-            this.BotonVerAprobadas.Location = new System.Drawing.Point(154, 66);
+            this.BotonVerAprobadas.Location = new System.Drawing.Point(125, 86);
             this.BotonVerAprobadas.Name = "BotonVerAprobadas";
             this.BotonVerAprobadas.Size = new System.Drawing.Size(145, 41);
             this.BotonVerAprobadas.TabIndex = 3;
@@ -385,7 +404,7 @@
             // 
             // BotonVerMateriasEnCurso
             // 
-            this.BotonVerMateriasEnCurso.Location = new System.Drawing.Point(154, 113);
+            this.BotonVerMateriasEnCurso.Location = new System.Drawing.Point(125, 133);
             this.BotonVerMateriasEnCurso.Name = "BotonVerMateriasEnCurso";
             this.BotonVerMateriasEnCurso.Size = new System.Drawing.Size(145, 41);
             this.BotonVerMateriasEnCurso.TabIndex = 4;
@@ -398,7 +417,7 @@
             this.BotonIrAform.BackColor = System.Drawing.Color.LightCoral;
             this.BotonIrAform.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BotonIrAform.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BotonIrAform.Location = new System.Drawing.Point(154, 160);
+            this.BotonIrAform.Location = new System.Drawing.Point(125, 180);
             this.BotonIrAform.Name = "BotonIrAform";
             this.BotonIrAform.Size = new System.Drawing.Size(145, 37);
             this.BotonIrAform.TabIndex = 12;
@@ -409,11 +428,12 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(101, 502);
+            this.label11.Location = new System.Drawing.Point(47, 486);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 13);
             this.label11.TabIndex = 18;
             this.label11.Text = "Preguntas frecuentes:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // groupBox2
             // 
@@ -425,12 +445,22 @@
             this.groupBox2.Controls.Add(this.BotonModificar);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBoxCambiarEstado);
-            this.groupBox2.Location = new System.Drawing.Point(104, 294);
+            this.groupBox2.Location = new System.Drawing.Point(85, 294);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(263, 183);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cambiar estado";
+            // 
+            // label1HOMOLOGADAoSinNota
+            // 
+            this.label1HOMOLOGADAoSinNota.AutoSize = true;
+            this.label1HOMOLOGADAoSinNota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label1HOMOLOGADAoSinNota.Location = new System.Drawing.Point(71, 150);
+            this.label1HOMOLOGADAoSinNota.Name = "label1HOMOLOGADAoSinNota";
+            this.label1HOMOLOGADAoSinNota.Size = new System.Drawing.Size(67, 13);
+            this.label1HOMOLOGADAoSinNota.TabIndex = 14;
+            this.label1HOMOLOGADAoSinNota.Text = "Homologada";
             // 
             // labelNOTA
             // 
@@ -508,7 +538,7 @@
             // 
             // BotonEjecutar
             // 
-            this.BotonEjecutar.Location = new System.Drawing.Point(350, 545);
+            this.BotonEjecutar.Location = new System.Drawing.Point(296, 529);
             this.BotonEjecutar.Name = "BotonEjecutar";
             this.BotonEjecutar.Size = new System.Drawing.Size(75, 23);
             this.BotonEjecutar.TabIndex = 17;
@@ -526,51 +556,23 @@
             "¿Cuántas materias me faltan de Cuarto año?",
             "¿Cuántas materias me faltan de Quinto año?",
             "¿Cuántas materias me faltan para el Título Intermedio?"});
-            this.comboBoxBusqueda.Location = new System.Drawing.Point(104, 518);
+            this.comboBoxBusqueda.Location = new System.Drawing.Point(50, 502);
             this.comboBoxBusqueda.Name = "comboBoxBusqueda";
             this.comboBoxBusqueda.Size = new System.Drawing.Size(321, 21);
             this.comboBoxBusqueda.TabIndex = 16;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label12.Location = new System.Drawing.Point(391, 545);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Promedio:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(544, 545);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "PROMEDIO";
-            // 
-            // label1HOMOLOGADAoSinNota
-            // 
-            this.label1HOMOLOGADAoSinNota.AutoSize = true;
-            this.label1HOMOLOGADAoSinNota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label1HOMOLOGADAoSinNota.Location = new System.Drawing.Point(71, 150);
-            this.label1HOMOLOGADAoSinNota.Name = "label1HOMOLOGADAoSinNota";
-            this.label1HOMOLOGADAoSinNota.Size = new System.Drawing.Size(67, 13);
-            this.label1HOMOLOGADAoSinNota.TabIndex = 14;
-            this.label1HOMOLOGADAoSinNota.Text = "Homologada";
+            this.comboBoxBusqueda.SelectedIndexChanged += new System.EventHandler(this.comboBoxBusqueda_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1174, 656);
+            this.ClientSize = new System.Drawing.Size(1061, 784);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.BotonAdministrador);
             this.Controls.Add(this.BotonSalir);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Materias Ingeniería en Sistemas Informáticos";

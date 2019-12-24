@@ -455,5 +455,15 @@ namespace Materias_UAI
             form.Show();
             */
         }
+
+        private void comboBoxBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
