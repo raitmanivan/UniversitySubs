@@ -16,7 +16,7 @@ namespace Materias_UAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Init());
+            Application.Run(new Form1());
         }
     }
 }
