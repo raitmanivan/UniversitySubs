@@ -63,7 +63,7 @@ namespace Materias_UAI
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form1());
+            openChildForm(new Subjects());
         }
 
         private Form activeForm = null;
