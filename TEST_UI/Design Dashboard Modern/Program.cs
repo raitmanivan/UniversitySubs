@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Materias_UAI
+namespace Design_Dashboard_Modern
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Materias_UAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Init());
+            Application.Run(new Form1());
         }
     }
 }
