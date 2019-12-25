@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//Agregado:
+
+//ADD:
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -19,7 +20,7 @@ namespace Data
         public void OpenConnection()
         {
             con = new SqlConnection();
-            //con.ConnectionString = @"Data Source=IVAN-PC;Initial Catalog=Usuarios;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=IVAN-PC;Initial Catalog=UAI_Materias;Integrated Security=True";
             con.ConnectionString = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
             con.Open();
         }
@@ -71,6 +72,68 @@ namespace Data
             }
             return status;
         }
+
+        public DataTable Read(string query, List<Parameter> parameters)
+        {
+            DataTable table = new DataTable();
+            try
+            {
+                OpenConnection();
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                if (parameters.Count != 0)
+                {
+                    foreach (Parameter item in parameters)
+                    {
+                        da.SelectCommand.Parameters.AddWithValue(item.Name, item.Value);
+                    }
+                }
+
+                da.Fill(table);
+                CloseConnection();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Database error: " + ex.Message);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("General error: " + ex.Message);
+            }
+
+            return table;
+        }
+
+        public void Write(string query, List<Parameter> parameters)
+        {
+            try
+            {
+                OpenConnection();
+                Transaccion = con.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(query, con, Transaccion);
+                cmd.CommandType = CommandType.Text;
+
+                if (parameters.Count != 0)
+                {
+                    foreach (Parameter item in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(item.Name, item.Value);
+                    }
+                }
+                int repuesta = cmd.ExecuteNonQuery();
+                Transaccion.Commit();
+            }
+            catch (Exception ex)
+            {
+                Transaccion.Rollback();
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
         /*
         public void ExcecuteScript(string[] ScriptSplitter)
         {
@@ -112,68 +175,7 @@ namespace Data
             }
         }
 
-        public DataTable Leer_Con_Parametros(string consulta, List<Parameter> parametros)
-        {
-            DataTable tabla = new DataTable();
-            try
-            {
-                AbrirConexion();
-                SqlDataAdapter da = new SqlDataAdapter(consulta, con);
-                if (parametros.Count != 0)
-                {
-                    foreach (Parameter item in parametros)
-                    {
-                        da.SelectCommand.Parameters.AddWithValue(item.Nombre, item.Valor);
-                    }
-                }
 
-                da.Fill(tabla);
-                CerrarConexion();
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine("Error en la base de datos: " + ex.Message);
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error general: " + ex.Message);
-            }
-
-            return tabla;
-        }
-
-
-
-        public void Escribir_Con_Parametros(string consulta, List<Parameter> parametros)
-        {
-            try
-            {
-                AbrirConexion();
-                Transaccion = con.BeginTransaction();
-                SqlCommand cmd = new SqlCommand(consulta, con, Transaccion);
-                cmd.CommandType = CommandType.Text;
-
-                if (parametros.Count != 0)
-                {
-                    foreach (Parameter item in parametros)
-                    {
-                        cmd.Parameters.AddWithValue(item.Nombre, item.Valor);
-                    }
-                }
-                int repuesta = cmd.ExecuteNonQuery();
-                Transaccion.Commit();
-            }
-            catch (Exception ex)
-            {
-                Transaccion.Rollback();
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-        }
 
         public int Escribir_W_Con_Parametros(string consulta, List<Parameter> parametros)
         {
