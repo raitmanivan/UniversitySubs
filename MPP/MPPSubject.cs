@@ -12,12 +12,18 @@ namespace MPP
 {
     public class MPPSubject
     {
+        #region Querys...
+        string QuerySelectAll = "Select * FROM Subject";
+        string QuerySelectStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID";
+        string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
+        string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
+        #endregion
+
         public List<Subject> ListSubjects()
         {
             Access access = new Access();
-            string consulta = "Select * FROM Subject";
             DataTable dt = default(DataTable);
-            dt = access.Read(consulta,null);
+            dt = access.Read(QuerySelectAll, null);
 
             List<Subject> subjectList = new List<Subject>();
 
@@ -29,7 +35,7 @@ namespace MPP
                     subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
                     subject.Name = fila["Name"].ToString();
                     subject.Year = Convert.ToInt32(fila["Year"]);
-                    subject.Status = fila["Status"].ToString();
+                    subject.Status.status = fila["Status"].ToString();
                     subject.PeriodType = fila["PeriodType"].ToString();
                     subject.CorrespondingPeriod = Convert.ToInt32(fila["CorrespondingPeriod"]);
                     subjectList.Add(subject);
@@ -40,13 +46,13 @@ namespace MPP
 
         public List<StudentSubject> ListStudentSubjects(Student student)
         {
-            Access access = new Access();
-            string consulta = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID";
+            Access access = new Access();        
+            MPPStatus mapperStatus = new MPPStatus();
             DataTable dt = default(DataTable);
             int ? qualification = null;
             List<Parameter> parameters = new List<Parameter>();
             parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(consulta, parameters);
+            dt = access.Read(QuerySelectStudentSubjects, parameters);
 
             List<StudentSubject> subjectList = new List<StudentSubject>();
 
@@ -63,8 +69,8 @@ namespace MPP
                         qualification = null;
                     else
                         qualification = Convert.ToInt32(fila["Qualification"]);
-
-                    StudentSubject information = new StudentSubject(student, subject, fila["Status"].ToString(), qualification);
+          
+                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
                     subjectList.Add(information);
                     qualification = -1;
                 }
@@ -75,7 +81,6 @@ namespace MPP
         public void CreateSubject(Subject subject)
         {
             Access access = new Access();
-            string query = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
             List<Parameter> parameters = new List<Parameter>();
 
             try
@@ -87,7 +92,7 @@ namespace MPP
                 parameters.Add(new Parameter("@PeriodType", subject.PeriodType));
                 parameters.Add(new Parameter("@CorrespondingPeriod", subject.CorrespondingPeriod));
 
-                access.Write(query, parameters);
+                access.Write(QueryInsertSubject, parameters);
             }
             catch (Exception ex)
             {
@@ -99,7 +104,6 @@ namespace MPP
         public void LinkSubjectWithStudent(StudentSubject information)
         {
             Access access = new Access();
-            string query = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
             List<Parameter> parameters = new List<Parameter>();
             try
             {
@@ -107,7 +111,7 @@ namespace MPP
                 parameters.Add(new Parameter("@SubjectID", information.Subject.SubjectID));
                 parameters.Add(new Parameter("@Status", information.Status));
                 parameters.Add(new Parameter("@Qualification", information.Qualification));
-                access.Write(query, parameters);
+                access.Write(QueryInsertStudentSubject, parameters);
             }
             catch (Exception ex)
             {

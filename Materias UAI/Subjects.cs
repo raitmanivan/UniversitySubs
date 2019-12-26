@@ -28,6 +28,8 @@ namespace Materias_UAI
             ivan.StudentID = "B00015192-T1";
             ivan.NameAndSurname = "Ivan Raitman";
             bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(ivan);
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
         }
     }
 }
