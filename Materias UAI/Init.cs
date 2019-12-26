@@ -22,6 +22,9 @@ namespace Materias_UAI
         public Init()
         {
             InitializeComponent();
+            openChildForm(new Login());
+            Student empty = new Student();
+            FillStudentInformation(empty);
         }
 
         private void Salir_Click(object sender, EventArgs e)
@@ -134,9 +137,7 @@ namespace Materias_UAI
 
         private void MenuTop_Paint(object sender, PaintEventArgs e)
         {
-            Student empty = new Student();
-            FillStudentInformation(empty);
-            openChildForm(new Login());
+       
         }
     }
 }
