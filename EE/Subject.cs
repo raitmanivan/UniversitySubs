@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using EE.States;
+
 namespace EE
 {
     public class Subject
@@ -11,7 +13,7 @@ namespace EE
         public int SubjectID { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
-        public string Status { get; set; }
+        public Status Status { get; set; }
         public string PeriodType { get; set; }
         public int CorrespondingPeriod { get; set; }
 
