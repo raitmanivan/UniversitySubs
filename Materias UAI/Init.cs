@@ -8,10 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Services.Session;
+using BLL;
+using EE;
+
 namespace Materias_UAI
 {
     public partial class Init : Form
     {
+        Session session = Session.getInstance();
+        BLLStudent BusinessStudent = new BLLStudent();
+
         public Init()
         {
             InitializeComponent();
@@ -79,6 +86,57 @@ namespace Materias_UAI
             PanelChart.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Login());
+        }
+
+        private void FillStudentInformation(Student student)
+        {
+            if (student.NameAndSurname != null)
+                this.bunifuCustomLabelNAME.Text = student.NameAndSurname;
+            else
+                this.bunifuCustomLabelNAME.Text = "";
+            if(student.StudentID != null)
+                this.bunifuCustomLabelStudentID.Text = student.StudentID;
+            else
+                this.bunifuCustomLabelStudentID.Text = "";
+            if (student.UniversityID != null)
+                this.bunifuCustomLabelUniversityID.Text = student.UniversityID;
+            else
+                this.bunifuCustomLabelUniversityID.Text = "";
+            if (student.Email != null)
+                this.bunifuCustomLabelEmail.Text = student.Email;
+            else
+                this.bunifuCustomLabelEmail.Text = "";
+            if (student.Status != null)
+                this.bunifuCustomLabelStatus.Text = student.Status;
+            else
+                this.bunifuCustomLabelStatus.Text = "";
+        }
+
+        private void bunifuTileButtonUSER_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.bunifuCustomLabelNAME.Text = session.user.Username;
+                Student student = new Student();
+                FillStudentInformation(BusinessStudent.SearchStudentByUser(session.user));
+
+            }
+            catch (Exception ex)
+            {
+                this.bunifuCustomLabelNAME.Text = "";
+            }
+        }
+
+        private void MenuTop_Paint(object sender, PaintEventArgs e)
+        {
+            Student empty = new Student();
+            FillStudentInformation(empty);
+            openChildForm(new Login());
         }
     }
 }

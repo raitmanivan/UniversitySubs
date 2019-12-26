@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Init));
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             this.MenuTop = new System.Windows.Forms.Panel();
             this.Restaurar = new System.Windows.Forms.PictureBox();
             this.Minimizar = new System.Windows.Forms.PictureBox();
@@ -41,6 +41,8 @@
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuCustomLabelNAME = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuTileButtonUSER = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -58,6 +60,10 @@
             this.RadioPanelChart = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuCustomLabelStudentID = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelUniversityID = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelEmail = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelStatus = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
@@ -86,6 +92,7 @@
             this.MenuTop.Name = "MenuTop";
             this.MenuTop.Size = new System.Drawing.Size(1400, 80);
             this.MenuTop.TabIndex = 0;
+            this.MenuTop.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuTop_Paint);
             // 
             // Restaurar
             // 
@@ -188,6 +195,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Sidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sidebar.BackgroundImage")));
             this.Sidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Sidebar.Controls.Add(this.bunifuCustomLabelStatus);
+            this.Sidebar.Controls.Add(this.bunifuCustomLabelEmail);
+            this.Sidebar.Controls.Add(this.bunifuCustomLabelUniversityID);
+            this.Sidebar.Controls.Add(this.bunifuCustomLabelStudentID);
+            this.Sidebar.Controls.Add(this.bunifuCustomLabelNAME);
+            this.Sidebar.Controls.Add(this.bunifuTileButtonUSER);
             this.Sidebar.Controls.Add(this.bunifuFlatButton7);
             this.Sidebar.Controls.Add(this.bunifuFlatButton6);
             this.Sidebar.Controls.Add(this.bunifuFlatButton5);
@@ -208,6 +221,42 @@
             this.Sidebar.Quality = 10;
             this.Sidebar.Size = new System.Drawing.Size(270, 784);
             this.Sidebar.TabIndex = 0;
+            // 
+            // bunifuCustomLabelNAME
+            // 
+            this.bunifuCustomLabelNAME.AutoSize = true;
+            this.bunifuCustomLabelNAME.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.bunifuCustomLabelNAME, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuCustomLabelNAME, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabelNAME.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.bunifuCustomLabelNAME.ForeColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabelNAME.Location = new System.Drawing.Point(6, 706);
+            this.bunifuCustomLabelNAME.Name = "bunifuCustomLabelNAME";
+            this.bunifuCustomLabelNAME.Size = new System.Drawing.Size(40, 16);
+            this.bunifuCustomLabelNAME.TabIndex = 16;
+            this.bunifuCustomLabelNAME.Text = "NAME";
+            // 
+            // bunifuTileButtonUSER
+            // 
+            this.bunifuTileButtonUSER.BackColor = System.Drawing.Color.Crimson;
+            this.bunifuTileButtonUSER.color = System.Drawing.Color.Crimson;
+            this.bunifuTileButtonUSER.colorActive = System.Drawing.Color.Crimson;
+            this.bunifuTileButtonUSER.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuTileButtonUSER, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.bunifuTileButtonUSER, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTileButtonUSER.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.bunifuTileButtonUSER.ForeColor = System.Drawing.Color.White;
+            this.bunifuTileButtonUSER.Image = ((System.Drawing.Image)(resources.GetObject("bunifuTileButtonUSER.Image")));
+            this.bunifuTileButtonUSER.ImagePosition = 20;
+            this.bunifuTileButtonUSER.ImageZoom = 50;
+            this.bunifuTileButtonUSER.LabelPosition = 41;
+            this.bunifuTileButtonUSER.LabelText = "Who Am I";
+            this.bunifuTileButtonUSER.Location = new System.Drawing.Point(9, 571);
+            this.bunifuTileButtonUSER.Margin = new System.Windows.Forms.Padding(6);
+            this.bunifuTileButtonUSER.Name = "bunifuTileButtonUSER";
+            this.bunifuTileButtonUSER.Size = new System.Drawing.Size(128, 129);
+            this.bunifuTileButtonUSER.TabIndex = 15;
+            this.bunifuTileButtonUSER.Click += new System.EventHandler(this.bunifuTileButtonUSER_Click);
             // 
             // bunifuFlatButton7
             // 
@@ -232,7 +281,7 @@
             this.bunifuFlatButton7.IconVisible = true;
             this.bunifuFlatButton7.IconZoom = 50D;
             this.bunifuFlatButton7.IsTab = false;
-            this.bunifuFlatButton7.Location = new System.Drawing.Point(9, 511);
+            this.bunifuFlatButton7.Location = new System.Drawing.Point(3, 428);
             this.bunifuFlatButton7.Name = "bunifuFlatButton7";
             this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.Transparent;
@@ -251,7 +300,7 @@
             this.bunifuFlatButton6.BackColor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton6.BorderRadius = 0;
-            this.bunifuFlatButton6.ButtonText = "      PROVEEDORES";
+            this.bunifuFlatButton6.ButtonText = "      INGRESAR";
             this.bunifuFlatButton6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebarBack.SetDecoration(this.bunifuFlatButton6, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.bunifuFlatButton6, BunifuAnimatorNS.DecorationType.None);
@@ -268,7 +317,7 @@
             this.bunifuFlatButton6.IconVisible = true;
             this.bunifuFlatButton6.IconZoom = 50D;
             this.bunifuFlatButton6.IsTab = false;
-            this.bunifuFlatButton6.Location = new System.Drawing.Point(9, 441);
+            this.bunifuFlatButton6.Location = new System.Drawing.Point(7, 279);
             this.bunifuFlatButton6.Name = "bunifuFlatButton6";
             this.bunifuFlatButton6.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton6.OnHovercolor = System.Drawing.Color.Transparent;
@@ -276,10 +325,11 @@
             this.bunifuFlatButton6.selected = false;
             this.bunifuFlatButton6.Size = new System.Drawing.Size(252, 51);
             this.bunifuFlatButton6.TabIndex = 13;
-            this.bunifuFlatButton6.Text = "      PROVEEDORES";
+            this.bunifuFlatButton6.Text = "      INGRESAR";
             this.bunifuFlatButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton6.Textcolor = System.Drawing.Color.LightGray;
             this.bunifuFlatButton6.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.bunifuFlatButton6.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
             // 
             // bunifuFlatButton5
             // 
@@ -340,7 +390,7 @@
             this.bunifuFlatButtonSTATUS.IconVisible = true;
             this.bunifuFlatButtonSTATUS.IconZoom = 50D;
             this.bunifuFlatButtonSTATUS.IsTab = false;
-            this.bunifuFlatButtonSTATUS.Location = new System.Drawing.Point(7, 231);
+            this.bunifuFlatButtonSTATUS.Location = new System.Drawing.Point(7, 219);
             this.bunifuFlatButtonSTATUS.Name = "bunifuFlatButtonSTATUS";
             this.bunifuFlatButtonSTATUS.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButtonSTATUS.OnHovercolor = System.Drawing.Color.Transparent;
@@ -376,7 +426,7 @@
             this.bunifuFlatButtonCORRELATIVITIES.IconVisible = true;
             this.bunifuFlatButtonCORRELATIVITIES.IconZoom = 50D;
             this.bunifuFlatButtonCORRELATIVITIES.IsTab = false;
-            this.bunifuFlatButtonCORRELATIVITIES.Location = new System.Drawing.Point(9, 161);
+            this.bunifuFlatButtonCORRELATIVITIES.Location = new System.Drawing.Point(9, 157);
             this.bunifuFlatButtonCORRELATIVITIES.Name = "bunifuFlatButtonCORRELATIVITIES";
             this.bunifuFlatButtonCORRELATIVITIES.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButtonCORRELATIVITIES.OnHovercolor = System.Drawing.Color.Transparent;
@@ -501,43 +551,43 @@
             // 
             this.AnimacionSidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.AnimacionSidebar.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 1;
-            animation4.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 2F;
-            animation4.TransparencyCoeff = 0F;
-            this.AnimacionSidebar.DefaultAnimation = animation4;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 1;
+            animation6.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation6.RotateCoeff = 0F;
+            animation6.RotateLimit = 0F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 2F;
+            animation6.TransparencyCoeff = 0F;
+            this.AnimacionSidebar.DefaultAnimation = animation6;
             // 
             // AnimacionSidebarBack
             // 
             this.AnimacionSidebarBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.AnimacionSidebarBack.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.AnimacionSidebarBack.DefaultAnimation = animation3;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 0F;
+            this.AnimacionSidebarBack.DefaultAnimation = animation5;
             // 
             // RadioPanelChart
             // 
@@ -550,6 +600,62 @@
             this.MoverDashboard.Horizontal = true;
             this.MoverDashboard.TargetControl = this.MenuTop;
             this.MoverDashboard.Vertical = true;
+            // 
+            // bunifuCustomLabelStudentID
+            // 
+            this.bunifuCustomLabelStudentID.AutoSize = true;
+            this.bunifuCustomLabelStudentID.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.bunifuCustomLabelStudentID, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuCustomLabelStudentID, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabelStudentID.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.bunifuCustomLabelStudentID.ForeColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabelStudentID.Location = new System.Drawing.Point(6, 728);
+            this.bunifuCustomLabelStudentID.Name = "bunifuCustomLabelStudentID";
+            this.bunifuCustomLabelStudentID.Size = new System.Drawing.Size(40, 16);
+            this.bunifuCustomLabelStudentID.TabIndex = 17;
+            this.bunifuCustomLabelStudentID.Text = "NAME";
+            // 
+            // bunifuCustomLabelUniversityID
+            // 
+            this.bunifuCustomLabelUniversityID.AutoSize = true;
+            this.bunifuCustomLabelUniversityID.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.bunifuCustomLabelUniversityID, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuCustomLabelUniversityID, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabelUniversityID.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.bunifuCustomLabelUniversityID.ForeColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabelUniversityID.Location = new System.Drawing.Point(99, 706);
+            this.bunifuCustomLabelUniversityID.Name = "bunifuCustomLabelUniversityID";
+            this.bunifuCustomLabelUniversityID.Size = new System.Drawing.Size(40, 16);
+            this.bunifuCustomLabelUniversityID.TabIndex = 18;
+            this.bunifuCustomLabelUniversityID.Text = "NAME";
+            // 
+            // bunifuCustomLabelEmail
+            // 
+            this.bunifuCustomLabelEmail.AutoSize = true;
+            this.bunifuCustomLabelEmail.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.bunifuCustomLabelEmail, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuCustomLabelEmail, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabelEmail.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.bunifuCustomLabelEmail.ForeColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabelEmail.Location = new System.Drawing.Point(6, 750);
+            this.bunifuCustomLabelEmail.Name = "bunifuCustomLabelEmail";
+            this.bunifuCustomLabelEmail.Size = new System.Drawing.Size(40, 16);
+            this.bunifuCustomLabelEmail.TabIndex = 19;
+            this.bunifuCustomLabelEmail.Text = "NAME";
+            // 
+            // bunifuCustomLabelStatus
+            // 
+            this.bunifuCustomLabelStatus.AutoSize = true;
+            this.bunifuCustomLabelStatus.BackColor = System.Drawing.Color.Transparent;
+            this.AnimacionSidebar.SetDecoration(this.bunifuCustomLabelStatus, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuCustomLabelStatus, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabelStatus.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.bunifuCustomLabelStatus.ForeColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabelStatus.Location = new System.Drawing.Point(99, 728);
+            this.bunifuCustomLabelStatus.Name = "bunifuCustomLabelStatus";
+            this.bunifuCustomLabelStatus.Size = new System.Drawing.Size(40, 16);
+            this.bunifuCustomLabelStatus.TabIndex = 20;
+            this.bunifuCustomLabelStatus.Text = "NAME";
             // 
             // Init
             // 
@@ -609,6 +715,12 @@
         private Bunifu.Framework.UI.BunifuElipse RadioPanelChart;
         private System.Windows.Forms.Timer Temporizador;
         private Bunifu.Framework.UI.BunifuDragControl MoverDashboard;
+        private Bunifu.Framework.UI.BunifuTileButton bunifuTileButtonUSER;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelNAME;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelStatus;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelEmail;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelUniversityID;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelStudentID;
     }
 }
 

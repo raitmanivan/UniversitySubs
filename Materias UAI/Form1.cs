@@ -445,7 +445,7 @@ namespace Materias_UAI
         private void BotonAdministrador_Click(object sender, EventArgs e)
         {            
             this.Hide();
-            Login form = new Login(this.miLista);
+            Login_ form = new Login_(this.miLista);
             form.Show();
 
             /** PARA PRUEBAS:
