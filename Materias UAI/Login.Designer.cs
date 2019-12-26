@@ -46,6 +46,7 @@
             this.SidebarSubjects.BackColor = System.Drawing.Color.Tomato;
             this.SidebarSubjects.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SidebarSubjects.BackgroundImage")));
             this.SidebarSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SidebarSubjects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SidebarSubjects.Controls.Add(this.bunifuMetroTextboxPASSWORD);
             this.SidebarSubjects.Controls.Add(this.bunifuMetroTextboxUSER);
             this.SidebarSubjects.Controls.Add(this.bunifuCustomLabel1);

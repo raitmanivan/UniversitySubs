@@ -18,12 +18,11 @@ namespace Materias_UAI
     {
         Session session = Session.getInstance();
         BLLStudent BusinessStudent = new BLLStudent();
-
+        Student empty = new Student();
         public Init()
         {
             InitializeComponent();
             openChildForm(new Login());
-            Student empty = new Student();
             FillStudentInformation(empty);
         }
 
@@ -60,6 +59,9 @@ namespace Materias_UAI
                 SidebarWrapper.Width = 90;
                 LineaSidebar.Width = 52;
                 AnimacionSidebar.Show(Sidebar);
+                Student empty = new Student();
+                FillStudentInformation(empty);
+                this.bunifuTileButtonUSER.Visible = false;
             }
             else
             {
@@ -68,6 +70,8 @@ namespace Materias_UAI
                 SidebarWrapper.Width = 300;
                 LineaSidebar.Width = 252;
                 AnimacionSidebarBack.Show(Sidebar);
+                FillStudentInformation(empty);
+                this.bunifuTileButtonUSER.Visible = true;
             }
         }
 
