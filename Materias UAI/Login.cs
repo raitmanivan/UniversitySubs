@@ -8,86 +8,78 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using EE;
+using BLL;
+using Services;
+using Services.Session;
+
 namespace Materias_UAI
 {
     public partial class Login : Form
     {
-        Lista miLista = new Lista();
-        int cont = 0;
+        User user = new User();
+        BLLUser BusinessUser = new BLLUser();
+        int attempts = 0;
 
-        public Login(Lista lista)
+        public Login()
         {
             InitializeComponent();
-            miLista = lista;
-            this.textBox1.Text = "Administrador";
-            textBox2.UseSystemPasswordChar = true;
         }
 
-        private void BotonIniciarSesión_Click(object sender, EventArgs e)
+        private void bunifuMetroTextboxUSER_Enter(object sender, EventArgs e)
         {
-            string admin = textBox1.Text.ToLower();
+            this.bunifuMetroTextboxUSER.Text = "";
+        }
 
-#region "Credenciales"            
-            if (admin == "administrador" && textBox2.Text == "Ivan2407")
-            {
-                MessageBox.Show("Credenciales correctas","Ingreso exitoso");
-                this.Hide();
-                ABM_Materias form = new ABM_Materias(this.miLista);
-                form.Show();
-            }
-#endregion    
+        private void bunifuMetroTextboxPASSWORD_Enter(object sender, EventArgs e)
+        {
+            this.bunifuMetroTextboxPASSWORD.isPassword = true;
+            this.bunifuMetroTextboxPASSWORD.Text = "";
+        }
 
+        private void bunifuFlatButtonLOGIN_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.bunifuMetroTextboxUSER.Text) || string.IsNullOrEmpty(this.bunifuMetroTextboxPASSWORD.Text))
+                MessageBox.Show("You have not completed the corresponding data", "Error");
+            else if(this.bunifuMetroTextboxUSER.Text == "Usuario" || this.bunifuMetroTextboxPASSWORD.Text == "Contraseña")
+                MessageBox.Show("You have not completed the corresponding data", "Error");
             else
             {
-                if(cont!=2)
-                {
-                    MessageBox.Show("Credenciales incorrectas","Ingreso incorrecto");
-                    this.textBox2.Clear();
-                    cont++;
-                }
-                else
-                {
-                    MessageBox.Show("Cantidad permitida de intentos superada","Error");
-                    Form1 form = new Form1();
-                    form.Show();
-                    this.Close();
-                }
-            }
-        }
+                string proposedUser = this.bunifuMetroTextboxUSER.Text;
+                string proposedPassword = this.bunifuMetroTextboxPASSWORD.Text;
+                user.Username = proposedUser;
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                string admin = textBox1.Text.ToLower();
-
-                #region "Credenciales"            
-                if (admin == "administrador" && textBox2.Text == "Ivan2407")
+                if (BusinessUser.LoginQuery(user, Security.Encrypt(proposedPassword)))
                 {
-                    MessageBox.Show("Credenciales correctas", "Ingreso exitoso");
+                    attempts = 0;
+                    Console.WriteLine("Creating session for the user...");
+                    Session sm = Session.getInstance();
+                    try
+                    {
+                        user = BusinessUser.SearchUserByUsername(user);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    sm.user = user;
                     this.Hide();
-                    ABM_Materias form = new ABM_Materias(this.miLista);
-                    form.Show();
                 }
-                #endregion
-
                 else
                 {
-                    if (cont != 2)
-                    {
-                        MessageBox.Show("Credenciales incorrectas", "Ingreso incorrecto");
-                        this.textBox2.Clear();
-                        cont++;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cantidad permitida de intentos superada", "Error");
-                        Form1 form = new Form1();
-                        form.Show();
-                        this.Close();
-                    }
+                    MessageBox.Show("Incorrect data", "Error");
+                    this.bunifuMetroTextboxPASSWORD.Text = "";
+                    attempts += 1;
+                }
+
+                if (attempts == 3)
+                {
+                    MessageBox.Show("You have reached the maximun level of attempts, you have been blocked.", "Attention is needed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                 }
             }
+
         }
     }
 }

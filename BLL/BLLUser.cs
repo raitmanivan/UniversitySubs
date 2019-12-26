@@ -17,5 +17,26 @@ namespace BLL
             return mapper.LoginQuery(user, password);
         }
 
+        public bool CreateUser(User user)
+        {
+            MPPUser mapper = new MPPUser();
+            try
+            {
+                mapper.CreateUser(user);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public User SearchUserByUsername(User user)
+        {
+            MPPUser mapper = new MPPUser();
+            return mapper.SearchUserByUsername(user);
+        }
+
     }
 }
