@@ -143,5 +143,10 @@ namespace Materias_UAI
         {
        
         }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Administration());
+        }
     }
 }
