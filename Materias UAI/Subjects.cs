@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 using BLL;
 using EE;
+using Services.Session;
 
 namespace Materias_UAI
 {
     public partial class Subjects : Form
     {
+        Session session = Session.getInstance();
+        BLLStudent BusinessStudent = new BLLStudent();
+
         public Subjects()
         {
             InitializeComponent();
@@ -24,12 +28,17 @@ namespace Materias_UAI
         {
             BLLSubject BusinessSubject = new BLLSubject();
             bunifuCustomDataGridSubjects.DataSource = null;
-            Student ivan = new Student();
-            ivan.StudentID = "B00015192-T1";
-            ivan.NameAndSurname = "Ivan Raitman";
-            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(ivan);
-            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
-            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
+            try
+            {
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+                bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
+            }
+            catch (Exception)
+            {
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListSubjects();
+            }
+
         }
     }
 }

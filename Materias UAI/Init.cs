@@ -24,6 +24,7 @@ namespace Materias_UAI
             InitializeComponent();
             openChildForm(new Login());
             FillStudentInformation(empty);
+            this.bunifuFlatButtonLOGOUT.Visible = false;
         }
 
         private void Salir_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace Materias_UAI
             else
                 this.bunifuCustomLabelEmail.Text = "";
             if (student.Status != null)
-                this.bunifuCustomLabelStatus.Text = student.Status;
+                this.bunifuCustomLabelStatus.Text = student.Status.status;
             else
                 this.bunifuCustomLabelStatus.Text = "";
         }
@@ -131,6 +132,7 @@ namespace Materias_UAI
                 this.bunifuCustomLabelNAME.Text = session.user.Username;
                 Student student = new Student();
                 FillStudentInformation(BusinessStudent.SearchStudentByUser(session.user));
+                this.bunifuFlatButtonLOGOUT.Visible = true;
 
             }
             catch (Exception ex)
@@ -142,6 +144,28 @@ namespace Materias_UAI
         private void MenuTop_Paint(object sender, PaintEventArgs e)
         {
        
+        }
+
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Administration());
+        }
+
+        private void bunifuFlatButtonLOGOUT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(session.Logout())
+                {
+                    MessageBox.Show("Saliste del sistema correctamente", "Información");
+                    FillStudentInformation(empty);
+                    this.bunifuFlatButtonLOGOUT.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

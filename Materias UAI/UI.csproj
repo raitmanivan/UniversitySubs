@@ -58,6 +58,12 @@
     <Compile Include="ABM Materias.Designer.cs">
       <DependentUpon>ABM Materias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration.Designer.cs">
+      <DependentUpon>Administration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Correlatividades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="ABM Materias.resx">
       <DependentUpon>ABM Materias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration.resx">
+      <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Correlatividades.resx">
       <DependentUpon>Correlatividades.cs</DependentUpon>
