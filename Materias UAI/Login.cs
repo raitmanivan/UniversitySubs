@@ -64,6 +64,7 @@ namespace Materias_UAI
                     }
 
                     sm.user = user;
+                    MessageBox.Show("Ingresaste al sistema correctamente", "Información");
                     this.Hide();
                 }
                 else

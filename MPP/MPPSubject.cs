@@ -22,8 +22,9 @@ namespace MPP
         public List<Subject> ListSubjects()
         {
             Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
             DataTable dt = default(DataTable);
-            dt = access.Read(QuerySelectAll, null);
+            dt = access.Read(QuerySelectAll, new List<Parameter>());
 
             List<Subject> subjectList = new List<Subject>();
 
@@ -35,7 +36,7 @@ namespace MPP
                     subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
                     subject.Name = fila["Name"].ToString();
                     subject.Year = Convert.ToInt32(fila["Year"]);
-                    subject.Status.status = fila["Status"].ToString();
+                    subject.Status = mapperStatus.ReturnStatus(fila["Status"].ToString());
                     subject.PeriodType = fila["PeriodType"].ToString();
                     subject.CorrespondingPeriod = Convert.ToInt32(fila["CorrespondingPeriod"]);
                     subjectList.Add(subject);
