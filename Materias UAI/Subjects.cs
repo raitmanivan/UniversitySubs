@@ -18,6 +18,7 @@ namespace Materias_UAI
     {
         Session session = Session.getInstance();
         BLLStudent BusinessStudent = new BLLStudent();
+        BLLSubject BusinessSubject = new BLLSubject();
 
         public Subjects()
         {
@@ -26,7 +27,6 @@ namespace Materias_UAI
 
         private void Subjects_Load(object sender, EventArgs e)
         {
-            BLLSubject BusinessSubject = new BLLSubject();
             bunifuCustomDataGridSubjects.DataSource = null;
             try
             {
@@ -38,7 +38,168 @@ namespace Materias_UAI
             {
                 bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListSubjects();
             }
+        }
 
+        private void GoBackButtonColors()
+        {
+            this.bunifuFlatButtonAllSubjects.Normalcolor = Color.Tomato;
+            this.bunifuFlatButtonAllSubjects.OnHovercolor = Color.Tomato;
+
+            this.bunifuFlatButtonApprovedSubjects.Normalcolor = Color.Tomato;
+            this.bunifuFlatButtonApprovedSubjects.OnHovercolor = Color.Tomato;
+
+            this.bunifuFlatButtonSubjectsInProgress.Normalcolor = Color.Tomato;
+            this.bunifuFlatButtonSubjectsInProgress.OnHovercolor = Color.Tomato;
+
+            this.bunifuFlatButtonSubjectsPendingExam.Normalcolor = Color.Tomato;
+            this.bunifuFlatButtonSubjectsPendingExam.OnHovercolor = Color.Tomato;
+
+            this.bunifuDropdownSubjectYearPendings.NomalColor = Color.Tomato;
+            this.bunifuDropdownSubjectYearPendings.onHoverColor = Color.Tomato;
+        }
+
+        private void bunifuFlatButtonAllSubjects_Click(object sender, EventArgs e)
+        {
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+
+            #region Design...
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Status"].Visible = true;
+            bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = true;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
+            GoBackButtonColors();
+            this.bunifuFlatButtonAllSubjects.Normalcolor = Color.Coral;
+            this.bunifuFlatButtonAllSubjects.OnHovercolor = Color.Coral;
+            #endregion
+        }
+
+        private void bunifuFlatButtonApprovedSubjects_Click(object sender, EventArgs e)
+        {
+            bunifuCustomDataGridSubjects.DataSource = null;
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListApprovedStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+
+            #region Design...
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = true;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
+            GoBackButtonColors();
+            this.bunifuFlatButtonApprovedSubjects.Normalcolor = Color.Coral;
+            this.bunifuFlatButtonApprovedSubjects.OnHovercolor = Color.Coral;
+            #endregion
+        }
+
+        private void bunifuFlatButtonSubjectsPendingExam_Click(object sender, EventArgs e)
+        {
+            bunifuCustomDataGridSubjects.DataSource = null;
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingExamStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            
+            #region Design...
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 616;
+            GoBackButtonColors();
+            this.bunifuFlatButtonSubjectsPendingExam.Normalcolor = Color.Coral;
+            this.bunifuFlatButtonSubjectsPendingExam.OnHovercolor = Color.Coral;
+            #endregion
+        }
+
+        private void bunifuFlatButtonSubjectsInProgress_Click(object sender, EventArgs e)
+        {
+            bunifuCustomDataGridSubjects.DataSource = null;
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+
+            #region Design...
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 616;
+            GoBackButtonColors();
+            this.bunifuFlatButtonSubjectsInProgress.Normalcolor = Color.Coral;
+            this.bunifuFlatButtonSubjectsInProgress.OnHovercolor = Color.Coral;
+            #endregion
+        }
+
+        private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
+        {
+            if(this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes 1 año")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjectsByYear(BusinessStudent.SearchStudentByUser(session.user),"1");
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes 2 año")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjectsByYear(BusinessStudent.SearchStudentByUser(session.user), "2");
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes 3 año")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjectsByYear(BusinessStudent.SearchStudentByUser(session.user), "3");
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes 4 año")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjectsByYear(BusinessStudent.SearchStudentByUser(session.user), "4");
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes 5 año")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjectsByYear(BusinessStudent.SearchStudentByUser(session.user), "5");
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes Analista")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                List<int> subjectsId = new List<int>();
+                for (int i = 1; i < 31; i++)
+                    subjectsId.Add(i);
+                bunifuCustomDataGridSubjects.DataSource = listPendingSubjectsForGraduation(subjectsId);
+            }
+
+            else if (this.bunifuDropdownSubjectYearPendings.selectedValue == "Pendientes Ingeniero")
+            {
+                bunifuCustomDataGridSubjects.DataSource = null;
+                List<int> subjectsId = new List<int>();
+                for (int i = 1; i < 51; i++)
+                    subjectsId.Add(i);
+                bunifuCustomDataGridSubjects.DataSource = listPendingSubjectsForGraduation(subjectsId);
+            }
+            
+            #region Design...
+            GoBackButtonColors();
+            this.bunifuDropdownSubjectYearPendings.NomalColor = Color.Coral;
+            this.bunifuDropdownSubjectYearPendings.onHoverColor = Color.Coral;
+            bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = false;
+            bunifuCustomDataGridSubjects.Columns["Subject"].Width = 616;
+            #endregion
+
+        }
+
+        private List<StudentSubject> listPendingSubjectsForGraduation(List<int> subjectsId)
+        {
+            List<StudentSubject> auxSubjects = BusinessSubject.ListPendingAndPendingExamStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            List<StudentSubject> finalSubjects = new List<StudentSubject>();
+
+            foreach (StudentSubject subject in auxSubjects)
+            {
+                foreach (int item in subjectsId)
+                {
+                    if (subject.Subject.SubjectID == item)
+                    {
+                        finalSubjects.Add(subject);
+                        break;
+                    }
+                }
+            }
+            return finalSubjects;
         }
     }
 }
