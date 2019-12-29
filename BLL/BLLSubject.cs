@@ -42,6 +42,12 @@ namespace BLL
             return mapper.ListPendingStudentSubjectsByYear(student, year);
         }
 
+        public float GetStudentSubjectAverage(Student student)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.GetStudentSubjectAverage(student);
+        }
+
         public bool CreateSubject(Subject subject)
         {
             MPPSubject mapper = new MPPSubject();

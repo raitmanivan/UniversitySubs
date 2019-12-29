@@ -37,6 +37,7 @@ namespace Materias_UAI
                 bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
                 bunifuGradientPanelSubjectAdministration.Visible = false;
+
             }
             catch (Exception)
             {
@@ -347,6 +348,53 @@ namespace Materias_UAI
             this.bunifuFlatButtonAllSubjects.Normalcolor = Color.Coral;
             this.bunifuFlatButtonAllSubjects.OnHovercolor = Color.Coral;
             #endregion
+        }
+
+        private void bunifuiOSSwitchMoreDetails_OnValueChange(object sender, EventArgs e)
+        {
+            if(this.bunifuiOSSwitchMoreDetails.Value)
+            {
+                float AllSubjects = BusinessSubject.ListSubjects().Count;
+                float ApprovedSubjects = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "Only approved student subjects").Count;
+                float PendingSubjects = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "Only in course, pending and pending exam student subjects").Count;
+                float Percentage = (ApprovedSubjects/ AllSubjects) * 100;
+
+                bunifuCircleProgressbarPercentageToFinish.Value = Convert.ToInt32(Percentage);
+                bunifuProgressBarAllSubjects.MaximumValue = Convert.ToInt32(AllSubjects);
+                bunifuProgressBarAllSubjects.Value = Convert.ToInt32(AllSubjects);
+                bunifuProgressBarApprovedSubjects.MaximumValue = Convert.ToInt32(AllSubjects);
+                bunifuProgressBarApprovedSubjects.Value = Convert.ToInt32(ApprovedSubjects);
+                bunifuProgressBarRemainingSubjects.Value = Convert.ToInt32(PendingSubjects);
+                bunifuProgressBarRemainingSubjects.MaximumValue = Convert.ToInt32(AllSubjects);
+                bunifuCustomLabelAverage.Text = Math.Round(BusinessSubject.GetStudentSubjectAverage(BusinessStudent.SearchStudentByUser(session.user)),2).ToString();
+
+                bunifuMaterialTextboxDetailsTittle.Visible = true;
+                bunifuCustomLabelPercentage.Visible = true;
+                bunifuCircleProgressbarPercentageToFinish.Visible = true;
+                bunifuCustomLabelAllSubjectsTittle.Visible = true;
+                bunifuProgressBarAllSubjects.Visible = true;
+                bunifuCustomLabelApprovedSubjectsTittle.Visible = true;
+                bunifuProgressBarApprovedSubjects.Visible = true;
+                bunifuCustomLabelRemainingSubjectsTitle.Visible = true;
+                bunifuProgressBarRemainingSubjects.Visible = true;
+                bunifuCustomLabelAverageTitle.Visible = true;
+                bunifuCustomLabelAverage.Visible = true;
+            }
+
+            else
+            {
+                bunifuMaterialTextboxDetailsTittle.Visible = false;
+                bunifuCustomLabelPercentage.Visible = false;
+                bunifuCircleProgressbarPercentageToFinish.Visible = false;
+                bunifuCustomLabelAllSubjectsTittle.Visible = false;
+                bunifuProgressBarAllSubjects.Visible = false;
+                bunifuCustomLabelApprovedSubjectsTittle.Visible = false;
+                bunifuProgressBarApprovedSubjects.Visible = false;
+                bunifuCustomLabelRemainingSubjectsTitle.Visible = false;
+                bunifuProgressBarRemainingSubjects.Visible = false;
+                bunifuCustomLabelAverageTitle.Visible = false;
+                bunifuCustomLabelAverage.Visible = false;
+            }
         }
     }
 }

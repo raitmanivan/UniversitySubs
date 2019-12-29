@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subjects));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCustomDataGridSubjects = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -58,6 +58,19 @@
             this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelSubjectCount = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuiOSSwitchMoreDetails = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.bunifuCircleProgressbarPercentageToFinish = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelPercentage = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuMaterialTextboxDetailsTittle = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.bunifuProgressBarAllSubjects = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.bunifuCustomLabelAllSubjectsTittle = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelApprovedSubjectsTittle = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuProgressBarApprovedSubjects = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.bunifuCustomLabelRemainingSubjectsTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuProgressBarRemainingSubjects = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.bunifuCustomLabelAverageTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelAverage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGridSubjects)).BeginInit();
             this.SidebarSubjects.SuspendLayout();
@@ -81,19 +94,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -701,11 +714,196 @@
             this.bunifuCustomLabelSubjectCount.TabIndex = 18;
             this.bunifuCustomLabelSubjectCount.Text = "N";
             // 
+            // bunifuiOSSwitchMoreDetails
+            // 
+            this.bunifuiOSSwitchMoreDetails.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuiOSSwitchMoreDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuiOSSwitchMoreDetails.BackgroundImage")));
+            this.bunifuiOSSwitchMoreDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuiOSSwitchMoreDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuiOSSwitchMoreDetails.Location = new System.Drawing.Point(971, 463);
+            this.bunifuiOSSwitchMoreDetails.Name = "bunifuiOSSwitchMoreDetails";
+            this.bunifuiOSSwitchMoreDetails.OffColor = System.Drawing.Color.Gray;
+            this.bunifuiOSSwitchMoreDetails.OnColor = System.Drawing.Color.Tomato;
+            this.bunifuiOSSwitchMoreDetails.Size = new System.Drawing.Size(35, 20);
+            this.bunifuiOSSwitchMoreDetails.TabIndex = 19;
+            this.bunifuiOSSwitchMoreDetails.Value = false;
+            this.bunifuiOSSwitchMoreDetails.OnValueChange += new System.EventHandler(this.bunifuiOSSwitchMoreDetails_OnValueChange);
+            // 
+            // bunifuCircleProgressbarPercentageToFinish
+            // 
+            this.bunifuCircleProgressbarPercentageToFinish.animated = false;
+            this.bunifuCircleProgressbarPercentageToFinish.animationIterval = 5;
+            this.bunifuCircleProgressbarPercentageToFinish.animationSpeed = 300;
+            this.bunifuCircleProgressbarPercentageToFinish.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCircleProgressbarPercentageToFinish.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCircleProgressbarPercentageToFinish.BackgroundImage")));
+            this.bunifuCircleProgressbarPercentageToFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bunifuCircleProgressbarPercentageToFinish.ForeColor = System.Drawing.Color.Teal;
+            this.bunifuCircleProgressbarPercentageToFinish.LabelVisible = true;
+            this.bunifuCircleProgressbarPercentageToFinish.LineProgressThickness = 4;
+            this.bunifuCircleProgressbarPercentageToFinish.LineThickness = 5;
+            this.bunifuCircleProgressbarPercentageToFinish.Location = new System.Drawing.Point(771, 549);
+            this.bunifuCircleProgressbarPercentageToFinish.MaxValue = 100;
+            this.bunifuCircleProgressbarPercentageToFinish.Name = "bunifuCircleProgressbarPercentageToFinish";
+            this.bunifuCircleProgressbarPercentageToFinish.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCircleProgressbarPercentageToFinish.ProgressColor = System.Drawing.Color.Teal;
+            this.bunifuCircleProgressbarPercentageToFinish.Size = new System.Drawing.Size(74, 74);
+            this.bunifuCircleProgressbarPercentageToFinish.TabIndex = 20;
+            this.bunifuCircleProgressbarPercentageToFinish.Value = 0;
+            this.bunifuCircleProgressbarPercentageToFinish.Visible = false;
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(911, 466);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(54, 17);
+            this.bunifuCustomLabel3.TabIndex = 21;
+            this.bunifuCustomLabel3.Text = "Detalle";
+            // 
+            // bunifuCustomLabelPercentage
+            // 
+            this.bunifuCustomLabelPercentage.AutoSize = true;
+            this.bunifuCustomLabelPercentage.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.bunifuCustomLabelPercentage.Location = new System.Drawing.Point(729, 545);
+            this.bunifuCustomLabelPercentage.Name = "bunifuCustomLabelPercentage";
+            this.bunifuCustomLabelPercentage.Size = new System.Drawing.Size(62, 15);
+            this.bunifuCustomLabelPercentage.TabIndex = 22;
+            this.bunifuCustomLabelPercentage.Text = "Porcentaje";
+            this.bunifuCustomLabelPercentage.Visible = false;
+            // 
+            // bunifuMaterialTextboxDetailsTittle
+            // 
+            this.bunifuMaterialTextboxDetailsTittle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bunifuMaterialTextboxDetailsTittle.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMaterialTextboxDetailsTittle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuMaterialTextboxDetailsTittle.HintForeColor = System.Drawing.Color.Empty;
+            this.bunifuMaterialTextboxDetailsTittle.HintText = "";
+            this.bunifuMaterialTextboxDetailsTittle.isPassword = false;
+            this.bunifuMaterialTextboxDetailsTittle.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineIdleColor = System.Drawing.Color.Gray;
+            this.bunifuMaterialTextboxDetailsTittle.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineThickness = 3;
+            this.bunifuMaterialTextboxDetailsTittle.Location = new System.Drawing.Point(718, 500);
+            this.bunifuMaterialTextboxDetailsTittle.Margin = new System.Windows.Forms.Padding(4);
+            this.bunifuMaterialTextboxDetailsTittle.Name = "bunifuMaterialTextboxDetailsTittle";
+            this.bunifuMaterialTextboxDetailsTittle.Size = new System.Drawing.Size(306, 33);
+            this.bunifuMaterialTextboxDetailsTittle.TabIndex = 23;
+            this.bunifuMaterialTextboxDetailsTittle.Text = "Detalle";
+            this.bunifuMaterialTextboxDetailsTittle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuMaterialTextboxDetailsTittle.Visible = false;
+            // 
+            // bunifuProgressBarAllSubjects
+            // 
+            this.bunifuProgressBarAllSubjects.BackColor = System.Drawing.Color.Silver;
+            this.bunifuProgressBarAllSubjects.BorderRadius = 5;
+            this.bunifuProgressBarAllSubjects.Location = new System.Drawing.Point(917, 563);
+            this.bunifuProgressBarAllSubjects.MaximumValue = 100;
+            this.bunifuProgressBarAllSubjects.Name = "bunifuProgressBarAllSubjects";
+            this.bunifuProgressBarAllSubjects.ProgressColor = System.Drawing.Color.Teal;
+            this.bunifuProgressBarAllSubjects.Size = new System.Drawing.Size(116, 10);
+            this.bunifuProgressBarAllSubjects.TabIndex = 24;
+            this.bunifuProgressBarAllSubjects.Value = 0;
+            this.bunifuProgressBarAllSubjects.Visible = false;
+            // 
+            // bunifuCustomLabelAllSubjectsTittle
+            // 
+            this.bunifuCustomLabelAllSubjectsTittle.AutoSize = true;
+            this.bunifuCustomLabelAllSubjectsTittle.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.bunifuCustomLabelAllSubjectsTittle.Location = new System.Drawing.Point(844, 545);
+            this.bunifuCustomLabelAllSubjectsTittle.Name = "bunifuCustomLabelAllSubjectsTittle";
+            this.bunifuCustomLabelAllSubjectsTittle.Size = new System.Drawing.Size(96, 15);
+            this.bunifuCustomLabelAllSubjectsTittle.TabIndex = 25;
+            this.bunifuCustomLabelAllSubjectsTittle.Text = "Total de materias";
+            this.bunifuCustomLabelAllSubjectsTittle.Visible = false;
+            // 
+            // bunifuCustomLabelApprovedSubjectsTittle
+            // 
+            this.bunifuCustomLabelApprovedSubjectsTittle.AutoSize = true;
+            this.bunifuCustomLabelApprovedSubjectsTittle.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.bunifuCustomLabelApprovedSubjectsTittle.Location = new System.Drawing.Point(844, 576);
+            this.bunifuCustomLabelApprovedSubjectsTittle.Name = "bunifuCustomLabelApprovedSubjectsTittle";
+            this.bunifuCustomLabelApprovedSubjectsTittle.Size = new System.Drawing.Size(111, 15);
+            this.bunifuCustomLabelApprovedSubjectsTittle.TabIndex = 27;
+            this.bunifuCustomLabelApprovedSubjectsTittle.Text = "Materias aprobadas";
+            this.bunifuCustomLabelApprovedSubjectsTittle.Visible = false;
+            // 
+            // bunifuProgressBarApprovedSubjects
+            // 
+            this.bunifuProgressBarApprovedSubjects.BackColor = System.Drawing.Color.Silver;
+            this.bunifuProgressBarApprovedSubjects.BorderRadius = 5;
+            this.bunifuProgressBarApprovedSubjects.Location = new System.Drawing.Point(914, 597);
+            this.bunifuProgressBarApprovedSubjects.MaximumValue = 100;
+            this.bunifuProgressBarApprovedSubjects.Name = "bunifuProgressBarApprovedSubjects";
+            this.bunifuProgressBarApprovedSubjects.ProgressColor = System.Drawing.Color.Teal;
+            this.bunifuProgressBarApprovedSubjects.Size = new System.Drawing.Size(116, 10);
+            this.bunifuProgressBarApprovedSubjects.TabIndex = 26;
+            this.bunifuProgressBarApprovedSubjects.Value = 0;
+            this.bunifuProgressBarApprovedSubjects.Visible = false;
+            // 
+            // bunifuCustomLabelRemainingSubjectsTitle
+            // 
+            this.bunifuCustomLabelRemainingSubjectsTitle.AutoSize = true;
+            this.bunifuCustomLabelRemainingSubjectsTitle.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.bunifuCustomLabelRemainingSubjectsTitle.Location = new System.Drawing.Point(844, 610);
+            this.bunifuCustomLabelRemainingSubjectsTitle.Name = "bunifuCustomLabelRemainingSubjectsTitle";
+            this.bunifuCustomLabelRemainingSubjectsTitle.Size = new System.Drawing.Size(101, 15);
+            this.bunifuCustomLabelRemainingSubjectsTitle.TabIndex = 29;
+            this.bunifuCustomLabelRemainingSubjectsTitle.Text = "Materias restantes";
+            this.bunifuCustomLabelRemainingSubjectsTitle.Visible = false;
+            // 
+            // bunifuProgressBarRemainingSubjects
+            // 
+            this.bunifuProgressBarRemainingSubjects.BackColor = System.Drawing.Color.Silver;
+            this.bunifuProgressBarRemainingSubjects.BorderRadius = 5;
+            this.bunifuProgressBarRemainingSubjects.Location = new System.Drawing.Point(914, 631);
+            this.bunifuProgressBarRemainingSubjects.MaximumValue = 100;
+            this.bunifuProgressBarRemainingSubjects.Name = "bunifuProgressBarRemainingSubjects";
+            this.bunifuProgressBarRemainingSubjects.ProgressColor = System.Drawing.Color.Teal;
+            this.bunifuProgressBarRemainingSubjects.Size = new System.Drawing.Size(116, 10);
+            this.bunifuProgressBarRemainingSubjects.TabIndex = 28;
+            this.bunifuProgressBarRemainingSubjects.Value = 0;
+            this.bunifuProgressBarRemainingSubjects.Visible = false;
+            // 
+            // bunifuCustomLabelAverageTitle
+            // 
+            this.bunifuCustomLabelAverageTitle.AutoSize = true;
+            this.bunifuCustomLabelAverageTitle.Font = new System.Drawing.Font("Century Gothic", 7F);
+            this.bunifuCustomLabelAverageTitle.Location = new System.Drawing.Point(729, 626);
+            this.bunifuCustomLabelAverageTitle.Name = "bunifuCustomLabelAverageTitle";
+            this.bunifuCustomLabelAverageTitle.Size = new System.Drawing.Size(56, 15);
+            this.bunifuCustomLabelAverageTitle.TabIndex = 30;
+            this.bunifuCustomLabelAverageTitle.Text = "Promedio";
+            this.bunifuCustomLabelAverageTitle.Visible = false;
+            // 
+            // bunifuCustomLabelAverage
+            // 
+            this.bunifuCustomLabelAverage.AutoSize = true;
+            this.bunifuCustomLabelAverage.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.bunifuCustomLabelAverage.Location = new System.Drawing.Point(791, 623);
+            this.bunifuCustomLabelAverage.Name = "bunifuCustomLabelAverage";
+            this.bunifuCustomLabelAverage.Size = new System.Drawing.Size(19, 19);
+            this.bunifuCustomLabelAverage.TabIndex = 31;
+            this.bunifuCustomLabelAverage.Text = "N";
+            this.bunifuCustomLabelAverage.Visible = false;
+            // 
             // Subjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 784);
+            this.Controls.Add(this.bunifuCustomLabelAverage);
+            this.Controls.Add(this.bunifuCustomLabelAverageTitle);
+            this.Controls.Add(this.bunifuCustomLabelRemainingSubjectsTitle);
+            this.Controls.Add(this.bunifuProgressBarRemainingSubjects);
+            this.Controls.Add(this.bunifuCustomLabelApprovedSubjectsTittle);
+            this.Controls.Add(this.bunifuProgressBarApprovedSubjects);
+            this.Controls.Add(this.bunifuCustomLabelAllSubjectsTittle);
+            this.Controls.Add(this.bunifuProgressBarAllSubjects);
+            this.Controls.Add(this.bunifuMaterialTextboxDetailsTittle);
+            this.Controls.Add(this.bunifuCustomLabelPercentage);
+            this.Controls.Add(this.bunifuCustomLabel3);
+            this.Controls.Add(this.bunifuiOSSwitchMoreDetails);
             this.Controls.Add(this.bunifuCustomLabelSubjectCount);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuMaterialTextbox1);
@@ -716,6 +914,7 @@
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuGradientPanelSubjectAdministration);
             this.Controls.Add(this.SidebarSubjects);
+            this.Controls.Add(this.bunifuCircleProgressbarPercentageToFinish);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Subjects";
             this.Text = "Subjects";
@@ -758,5 +957,18 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelSubjectCount;
+        private Bunifu.Framework.UI.BunifuiOSSwitch bunifuiOSSwitchMoreDetails;
+        private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbarPercentageToFinish;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelPercentage;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextboxDetailsTittle;
+        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBarAllSubjects;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelAllSubjectsTittle;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelApprovedSubjectsTittle;
+        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBarApprovedSubjects;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelRemainingSubjectsTitle;
+        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBarRemainingSubjects;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelAverageTitle;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelAverage;
     }
 }

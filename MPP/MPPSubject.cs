@@ -23,6 +23,8 @@ namespace MPP
         string QuerySelectPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Pending exam'";
         string QuerySelectPendingStudentSubjectsByYear = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam') AND subject.Year = ";
         string QuerySelectPendingAndPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam' OR studentsubject.Status = 'In course')";
+        string QuerySelectAverageStudentSubjects = "SELECT AVG(Cast(Qualification as Float)) as Average FROM StudentSubject WHERE[Status] = 'Approved' AND[Qualification] IS NOT NULL AND StudentID = @StudentID";
+
         string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
         string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
 
@@ -155,6 +157,24 @@ namespace MPP
                 }
             }
             return subjectList;
+        }
+
+        public float GetStudentSubjectAverage(Student student)
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@StudentID", student.StudentID));
+            dt = access.Read(QuerySelectAverageStudentSubjects, parameters);
+            float average = 0;
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                    average = Convert.ToSingle(fila["Average"]);
+            }
+            return average;
         }
 
         public List<StudentSubject> ListPendingStudentSubjectsByYear(Student student, string year)
