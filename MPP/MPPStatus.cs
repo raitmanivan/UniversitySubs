@@ -22,6 +22,8 @@ namespace MPP
                 return new ActiveStatus();
             else if (status == "Inactiva" || status == "Inactive")
                 return new InactiveStatus();
+            else if (status == "En curso" || status == "In course")
+                return new InCourseStatus();
             else
                 return null;
         }
