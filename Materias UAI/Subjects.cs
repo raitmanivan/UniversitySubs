@@ -30,7 +30,7 @@ namespace Materias_UAI
             bunifuCustomDataGridSubjects.DataSource = null;
             try
             {
-                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+                bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "All student subjects");
                 bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
             }
@@ -60,7 +60,7 @@ namespace Materias_UAI
 
         private void bunifuFlatButtonAllSubjects_Click(object sender, EventArgs e)
         {
-            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user),"All student subjects");
 
             #region Design...
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
@@ -76,7 +76,7 @@ namespace Materias_UAI
         private void bunifuFlatButtonApprovedSubjects_Click(object sender, EventArgs e)
         {
             bunifuCustomDataGridSubjects.DataSource = null;
-            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListApprovedStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user),"Only approved student subjects");
 
             #region Design...
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
@@ -92,7 +92,7 @@ namespace Materias_UAI
         private void bunifuFlatButtonSubjectsPendingExam_Click(object sender, EventArgs e)
         {
             bunifuCustomDataGridSubjects.DataSource = null;
-            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingExamStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user),"Only pending exam student subjects");
             
             #region Design...
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
@@ -108,7 +108,7 @@ namespace Materias_UAI
         private void bunifuFlatButtonSubjectsInProgress_Click(object sender, EventArgs e)
         {
             bunifuCustomDataGridSubjects.DataSource = null;
-            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListPendingStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "Only pending student subjects");
 
             #region Design...
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
@@ -185,7 +185,7 @@ namespace Materias_UAI
 
         private List<StudentSubject> listPendingSubjectsForGraduation(List<int> subjectsId)
         {
-            List<StudentSubject> auxSubjects = BusinessSubject.ListPendingAndPendingExamStudentSubjects(BusinessStudent.SearchStudentByUser(session.user));
+            List<StudentSubject> auxSubjects = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "Only pending and pending exam student subjects");
             List<StudentSubject> finalSubjects = new List<StudentSubject>();
 
             foreach (StudentSubject subject in auxSubjects)

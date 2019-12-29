@@ -17,34 +17,10 @@ namespace BLL
             return mapper.ListSubjects();
         }
 
-        public List<StudentSubject> ListStudentSubjects(Student student)
+        public List<StudentSubject> ListStudentSubjects(Student student,string select)
         {
             MPPSubject mapper = new MPPSubject();
-            return mapper.ListStudentSubjects(student);
-        }
-
-        public List<StudentSubject> ListApprovedStudentSubjects(Student student)
-        {
-            MPPSubject mapper = new MPPSubject();
-            return mapper.ListApprovedStudentSubjects(student);
-        }
-
-        public List<StudentSubject> ListPendingStudentSubjects(Student student)
-        {
-            MPPSubject mapper = new MPPSubject();
-            return mapper.ListPendingStudentSubjects(student);
-        }
-
-        public List<StudentSubject> ListPendingAndPendingExamStudentSubjects(Student student)
-        {
-            MPPSubject mapper = new MPPSubject();
-            return mapper.ListPendingAndPendingExamStudentSubjects(student);
-        }
-
-        public List<StudentSubject> ListPendingExamStudentSubjects(Student student)
-        {
-            MPPSubject mapper = new MPPSubject();
-            return mapper.ListPendingExamStudentSubjects(student);
+            return mapper.ListStudentSubjects(student,select);
         }
 
         public List<StudentSubject> ListPendingStudentSubjectsByYear(Student student, string year)

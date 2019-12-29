@@ -50,7 +50,22 @@ namespace MPP
             return subjectList;
         }
 
-        public List<StudentSubject> ListStudentSubjects(Student student)
+        private string SelectQuery(string query)
+        {
+            if (query == "All student subjects")
+                return QuerySelectStudentSubjects;
+            else if (query == "Only approved student subjects")
+                return QuerySelectApprovedStudentSubjects;
+            else if (query == "Only pending exam student subjects")
+                return QuerySelectPendingStudentSubjects;
+            else if (query == "Only pending and pending exam student subjects")
+                return QuerySelectPendingAndPendingExamStudentSubjects;
+            else if (query == "Only pending student subjects")
+                return QuerySelectPendingExamStudentSubjects;
+            else return string.Empty;
+        }
+
+        public List<StudentSubject> ListStudentSubjects(Student student, string query)
         {
             Access access = new Access();        
             MPPStatus mapperStatus = new MPPStatus();
@@ -58,7 +73,7 @@ namespace MPP
             int ? qualification = null;
             List<Parameter> parameters = new List<Parameter>();
             parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectStudentSubjects, parameters);
+            dt = access.Read(SelectQuery(query), parameters);
 
             List<StudentSubject> subjectList = new List<StudentSubject>();
 
@@ -76,143 +91,6 @@ namespace MPP
                     else
                         qualification = Convert.ToInt32(fila["Qualification"]);
           
-                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
-                    subjectList.Add(information);
-                    qualification = -1;
-                }
-            }
-            return subjectList;
-        }
-
-        public List<StudentSubject> ListApprovedStudentSubjects(Student student)
-        {
-            Access access = new Access();
-            MPPStatus mapperStatus = new MPPStatus();
-            DataTable dt = default(DataTable);
-            int? qualification = null;
-            List<Parameter> parameters = new List<Parameter>();
-            parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectApprovedStudentSubjects, parameters);
-
-            List<StudentSubject> subjectList = new List<StudentSubject>();
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    Subject subject = new Subject();
-                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
-                    subject.Name = fila["Name"].ToString();
-                    subject.Year = Convert.ToInt32(fila["Year"]);
-
-                    if (fila["Qualification"] == DBNull.Value)
-                        qualification = null;
-                    else
-                        qualification = Convert.ToInt32(fila["Qualification"]);
-
-                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
-                    subjectList.Add(information);
-                    qualification = -1;
-                }
-            }
-            return subjectList;
-        }
-
-        public List<StudentSubject> ListPendingStudentSubjects(Student student)
-        {
-            Access access = new Access();
-            MPPStatus mapperStatus = new MPPStatus();
-            DataTable dt = default(DataTable);
-            int? qualification = null;
-            List<Parameter> parameters = new List<Parameter>();
-            parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectPendingStudentSubjects, parameters);
-
-            List<StudentSubject> subjectList = new List<StudentSubject>();
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    Subject subject = new Subject();
-                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
-                    subject.Name = fila["Name"].ToString();
-                    subject.Year = Convert.ToInt32(fila["Year"]);
-
-                    if (fila["Qualification"] == DBNull.Value)
-                        qualification = null;
-                    else
-                        qualification = Convert.ToInt32(fila["Qualification"]);
-
-                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
-                    subjectList.Add(information);
-                    qualification = -1;
-                }
-            }
-            return subjectList;
-        }
-
-        public List<StudentSubject> ListPendingAndPendingExamStudentSubjects(Student student)
-        {
-            Access access = new Access();
-            MPPStatus mapperStatus = new MPPStatus();
-            DataTable dt = default(DataTable);
-            int? qualification = null;
-            List<Parameter> parameters = new List<Parameter>();
-            parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectPendingAndPendingExamStudentSubjects, parameters);
-
-            List<StudentSubject> subjectList = new List<StudentSubject>();
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    Subject subject = new Subject();
-                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
-                    subject.Name = fila["Name"].ToString();
-                    subject.Year = Convert.ToInt32(fila["Year"]);
-
-                    if (fila["Qualification"] == DBNull.Value)
-                        qualification = null;
-                    else
-                        qualification = Convert.ToInt32(fila["Qualification"]);
-
-                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
-                    subjectList.Add(information);
-                    qualification = -1;
-                }
-            }
-            return subjectList;
-        }
-
-
-        public List<StudentSubject> ListPendingExamStudentSubjects(Student student)
-        {
-            Access access = new Access();
-            MPPStatus mapperStatus = new MPPStatus();
-            DataTable dt = default(DataTable);
-            int? qualification = null;
-            List<Parameter> parameters = new List<Parameter>();
-            parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectPendingExamStudentSubjects, parameters);
-
-            List<StudentSubject> subjectList = new List<StudentSubject>();
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach (DataRow fila in dt.Rows)
-                {
-                    Subject subject = new Subject();
-                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
-                    subject.Name = fila["Name"].ToString();
-                    subject.Year = Convert.ToInt32(fila["Year"]);
-
-                    if (fila["Qualification"] == DBNull.Value)
-                        qualification = null;
-                    else
-                        qualification = Convert.ToInt32(fila["Qualification"]);
-
                     StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
                     subjectList.Add(information);
                     qualification = -1;
