@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subjects));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCustomDataGridSubjects = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -39,7 +39,8 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.SidebarSubjects = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
+            this.bunifuFlatButtonSubjectsPendingExam = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuDropdownSubjectYearPendings = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuFlatButtonSubjectsInProgress = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonApprovedSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonAllSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -66,19 +67,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -178,7 +179,8 @@
             this.SidebarSubjects.BackColor = System.Drawing.Color.Tomato;
             this.SidebarSubjects.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SidebarSubjects.BackgroundImage")));
             this.SidebarSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SidebarSubjects.Controls.Add(this.bunifuDropdown1);
+            this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectsPendingExam);
+            this.SidebarSubjects.Controls.Add(this.bunifuDropdownSubjectYearPendings);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectsInProgress);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonApprovedSubjects);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonAllSubjects);
@@ -193,13 +195,48 @@
             this.SidebarSubjects.Size = new System.Drawing.Size(274, 363);
             this.SidebarSubjects.TabIndex = 10;
             // 
-            // bunifuDropdown1
+            // bunifuFlatButtonSubjectsPendingExam
             // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.Items = new string[] {
+            this.bunifuFlatButtonSubjectsPendingExam.Activecolor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonSubjectsPendingExam.BackColor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonSubjectsPendingExam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButtonSubjectsPendingExam.BorderRadius = 0;
+            this.bunifuFlatButtonSubjectsPendingExam.ButtonText = "Ver materias en final";
+            this.bunifuFlatButtonSubjectsPendingExam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButtonSubjectsPendingExam.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButtonSubjectsPendingExam.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButtonSubjectsPendingExam.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonSubjectsPendingExam.Iconimage")));
+            this.bunifuFlatButtonSubjectsPendingExam.Iconimage_right = null;
+            this.bunifuFlatButtonSubjectsPendingExam.Iconimage_right_Selected = null;
+            this.bunifuFlatButtonSubjectsPendingExam.Iconimage_Selected = null;
+            this.bunifuFlatButtonSubjectsPendingExam.IconMarginLeft = 0;
+            this.bunifuFlatButtonSubjectsPendingExam.IconMarginRight = 0;
+            this.bunifuFlatButtonSubjectsPendingExam.IconRightVisible = true;
+            this.bunifuFlatButtonSubjectsPendingExam.IconRightZoom = 0D;
+            this.bunifuFlatButtonSubjectsPendingExam.IconVisible = true;
+            this.bunifuFlatButtonSubjectsPendingExam.IconZoom = 90D;
+            this.bunifuFlatButtonSubjectsPendingExam.IsTab = false;
+            this.bunifuFlatButtonSubjectsPendingExam.Location = new System.Drawing.Point(39, 195);
+            this.bunifuFlatButtonSubjectsPendingExam.Name = "bunifuFlatButtonSubjectsPendingExam";
+            this.bunifuFlatButtonSubjectsPendingExam.Normalcolor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonSubjectsPendingExam.OnHovercolor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonSubjectsPendingExam.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButtonSubjectsPendingExam.selected = false;
+            this.bunifuFlatButtonSubjectsPendingExam.Size = new System.Drawing.Size(201, 44);
+            this.bunifuFlatButtonSubjectsPendingExam.TabIndex = 14;
+            this.bunifuFlatButtonSubjectsPendingExam.Text = "Ver materias en final";
+            this.bunifuFlatButtonSubjectsPendingExam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButtonSubjectsPendingExam.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButtonSubjectsPendingExam.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonSubjectsPendingExam.Click += new System.EventHandler(this.bunifuFlatButtonSubjectsPendingExam_Click);
+            // 
+            // bunifuDropdownSubjectYearPendings
+            // 
+            this.bunifuDropdownSubjectYearPendings.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdownSubjectYearPendings.BorderRadius = 3;
+            this.bunifuDropdownSubjectYearPendings.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuDropdownSubjectYearPendings.ForeColor = System.Drawing.Color.White;
+            this.bunifuDropdownSubjectYearPendings.Items = new string[] {
         "Pendientes 1 año",
         "Pendientes 2 año",
         "Pendientes 3 año",
@@ -207,13 +244,14 @@
         "Pendientes 5 año",
         "Pendientes Analista",
         "Pendientes Ingeniero"};
-            this.bunifuDropdown1.Location = new System.Drawing.Point(39, 195);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.Color.Tomato;
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.Tomato;
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(201, 35);
-            this.bunifuDropdown1.TabIndex = 11;
+            this.bunifuDropdownSubjectYearPendings.Location = new System.Drawing.Point(39, 245);
+            this.bunifuDropdownSubjectYearPendings.Name = "bunifuDropdownSubjectYearPendings";
+            this.bunifuDropdownSubjectYearPendings.NomalColor = System.Drawing.Color.Tomato;
+            this.bunifuDropdownSubjectYearPendings.onHoverColor = System.Drawing.Color.Tomato;
+            this.bunifuDropdownSubjectYearPendings.selectedIndex = -1;
+            this.bunifuDropdownSubjectYearPendings.Size = new System.Drawing.Size(201, 35);
+            this.bunifuDropdownSubjectYearPendings.TabIndex = 11;
+            this.bunifuDropdownSubjectYearPendings.onItemSelected += new System.EventHandler(this.bunifuDropdown1_onItemSelected);
             // 
             // bunifuFlatButtonSubjectsInProgress
             // 
@@ -248,6 +286,7 @@
             this.bunifuFlatButtonSubjectsInProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonSubjectsInProgress.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonSubjectsInProgress.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonSubjectsInProgress.Click += new System.EventHandler(this.bunifuFlatButtonSubjectsInProgress_Click);
             // 
             // bunifuFlatButtonApprovedSubjects
             // 
@@ -282,6 +321,7 @@
             this.bunifuFlatButtonApprovedSubjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonApprovedSubjects.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonApprovedSubjects.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonApprovedSubjects.Click += new System.EventHandler(this.bunifuFlatButtonApprovedSubjects_Click);
             // 
             // bunifuFlatButtonAllSubjects
             // 
@@ -316,6 +356,7 @@
             this.bunifuFlatButtonAllSubjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonAllSubjects.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonAllSubjects.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonAllSubjects.Click += new System.EventHandler(this.bunifuFlatButtonAllSubjects_Click);
             // 
             // LineaSidebar
             // 
@@ -367,6 +408,7 @@
         private Bunifu.Framework.UI.BunifuSeparator LineaSidebar;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectsInProgress;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonApprovedSubjects;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
+        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdownSubjectYearPendings;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectsPendingExam;
     }
 }

@@ -15,6 +15,11 @@ namespace MPP
         #region Querys...
         string QuerySelectAll = "Select * FROM Subject";
         string QuerySelectStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID";
+        string QuerySelectApprovedStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Aprobada'";
+        string QuerySelectPendingStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'En curso'";
+        string QuerySelectPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'En final'";
+        string QuerySelectPendingStudentSubjectsByYear = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'No cursada' OR studentsubject.Status = 'En final') AND subject.Year = ";
+        string QuerySelectPendingAndPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'No cursada' OR studentsubject.Status = 'En final')";
         string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
         string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
         #endregion
@@ -45,7 +50,22 @@ namespace MPP
             return subjectList;
         }
 
-        public List<StudentSubject> ListStudentSubjects(Student student)
+        private string SelectQuery(string query)
+        {
+            if (query == "All student subjects")
+                return QuerySelectStudentSubjects;
+            else if (query == "Only approved student subjects")
+                return QuerySelectApprovedStudentSubjects;
+            else if (query == "Only pending exam student subjects")
+                return QuerySelectPendingStudentSubjects;
+            else if (query == "Only pending and pending exam student subjects")
+                return QuerySelectPendingAndPendingExamStudentSubjects;
+            else if (query == "Only pending student subjects")
+                return QuerySelectPendingExamStudentSubjects;
+            else return string.Empty;
+        }
+
+        public List<StudentSubject> ListStudentSubjects(Student student, string query)
         {
             Access access = new Access();        
             MPPStatus mapperStatus = new MPPStatus();
@@ -53,7 +73,7 @@ namespace MPP
             int ? qualification = null;
             List<Parameter> parameters = new List<Parameter>();
             parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectStudentSubjects, parameters);
+            dt = access.Read(SelectQuery(query), parameters);
 
             List<StudentSubject> subjectList = new List<StudentSubject>();
 
@@ -71,6 +91,40 @@ namespace MPP
                     else
                         qualification = Convert.ToInt32(fila["Qualification"]);
           
+                    StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
+                    subjectList.Add(information);
+                    qualification = -1;
+                }
+            }
+            return subjectList;
+        }
+
+        public List<StudentSubject> ListPendingStudentSubjectsByYear(Student student, string year)
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            int? qualification = null;
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@StudentID", student.StudentID));
+            dt = access.Read(QuerySelectPendingStudentSubjectsByYear + "'" + year + "'", parameters);
+
+            List<StudentSubject> subjectList = new List<StudentSubject>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    Subject subject = new Subject();
+                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
+                    subject.Name = fila["Name"].ToString();
+                    subject.Year = Convert.ToInt32(fila["Year"]);
+
+                    if (fila["Qualification"] == DBNull.Value)
+                        qualification = null;
+                    else
+                        qualification = Convert.ToInt32(fila["Qualification"]);
+
                     StudentSubject information = new StudentSubject(subject, mapperStatus.ReturnStatus(fila["Status"].ToString()), qualification);
                     subjectList.Add(information);
                     qualification = -1;
