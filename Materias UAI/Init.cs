@@ -135,7 +135,7 @@ namespace Materias_UAI
                 this.bunifuFlatButtonLOGOUT.Visible = true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.bunifuCustomLabelNAME.Text = "";
             }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="States\InactiveStatus.cs" />
     <Compile Include="States\ActiveStatus.cs" />
+    <Compile Include="States\InCourseStatus.cs" />
     <Compile Include="States\PendingStatus.cs" />
     <Compile Include="States\PendingExamStatus.cs" />
     <Compile Include="States\ApprovedStatus.cs" />

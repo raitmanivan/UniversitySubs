@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using MPP;
 using EE;
+using EE.States;
 
 namespace BLL
 {
@@ -15,6 +16,18 @@ namespace BLL
         {
             MPPSubject mapper = new MPPSubject();
             return mapper.ListSubjects();
+        }
+
+        public Subject ListSubjectBySubjectID(int subjectID)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListSubjectBySubjectID(subjectID);
+        }
+
+        public Subject ListSubjectByName(string name)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListSubjectByName(name);
         }
 
         public List<StudentSubject> ListStudentSubjects(Student student,string select)
@@ -50,6 +63,21 @@ namespace BLL
             try
             {
                 mapper.LinkSubjectWithStudent(information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public bool ChangeStudentSubjectStatus(Student student, Subject subject, Status status, int? qualification)
+        {
+            MPPSubject mapper = new MPPSubject();
+            try
+            {
+                mapper.ChangeStudentSubjectStatus(student,subject,status,qualification);
                 return true;
             }
             catch (Exception ex)
