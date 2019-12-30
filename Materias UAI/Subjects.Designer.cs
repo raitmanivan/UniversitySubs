@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subjects));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCustomDataGridSubjects = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -94,19 +94,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -742,6 +742,7 @@
             this.bunifuCircleProgressbarPercentageToFinish.LineProgressThickness = 4;
             this.bunifuCircleProgressbarPercentageToFinish.LineThickness = 5;
             this.bunifuCircleProgressbarPercentageToFinish.Location = new System.Drawing.Point(771, 549);
+            this.bunifuCircleProgressbarPercentageToFinish.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuCircleProgressbarPercentageToFinish.MaxValue = 100;
             this.bunifuCircleProgressbarPercentageToFinish.Name = "bunifuCircleProgressbarPercentageToFinish";
             this.bunifuCircleProgressbarPercentageToFinish.ProgressBackColor = System.Drawing.Color.Gainsboro;
@@ -912,9 +913,9 @@
             this.Controls.Add(this.bunifuTextbox1);
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuSeparator1);
+            this.Controls.Add(this.bunifuCircleProgressbarPercentageToFinish);
             this.Controls.Add(this.bunifuGradientPanelSubjectAdministration);
             this.Controls.Add(this.SidebarSubjects);
-            this.Controls.Add(this.bunifuCircleProgressbarPercentageToFinish);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Subjects";
             this.Text = "Subjects";

@@ -167,5 +167,10 @@ namespace Materias_UAI
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private void bunifuFlatButtonCORRELATIVITIES_Click(object sender, EventArgs e)
+        {
+            openChildForm(new CorrelativeSubjects());
+        }
     }
 }
