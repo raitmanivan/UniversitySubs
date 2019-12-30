@@ -142,7 +142,10 @@ namespace MPP
                 foreach (DataRow fila in dt.Rows)
                 {
                     Subject NewSubject = new Subject();
-                    NewSubject = this.ListSubjectBySubjectID(Convert.ToInt32(fila["SubjectID"]));
+                    if (DBNull.Value.Equals(fila["SubjectID"]))
+                        return null;
+                    else
+                        NewSubject = this.ListSubjectBySubjectID(Convert.ToInt32(fila["SubjectID"]));
                     subjectList.Add(NewSubject);
                 }
             }
