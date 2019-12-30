@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Init));
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             this.MenuTop = new System.Windows.Forms.Panel();
             this.Restaurar = new System.Windows.Forms.PictureBox();
             this.Minimizar = new System.Windows.Forms.PictureBox();
@@ -41,6 +41,7 @@
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuFlatButtonLOGOUT = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabelStatus = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelEmail = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelUniversityID = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -64,7 +65,6 @@
             this.RadioPanelChart = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Temporizador = new System.Windows.Forms.Timer(this.components);
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.bunifuFlatButtonLOGOUT = new Bunifu.Framework.UI.BunifuFlatButton();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
@@ -223,6 +223,44 @@
             this.Sidebar.Quality = 10;
             this.Sidebar.Size = new System.Drawing.Size(270, 784);
             this.Sidebar.TabIndex = 0;
+            // 
+            // bunifuFlatButtonLOGOUT
+            // 
+            this.bunifuFlatButtonLOGOUT.Activecolor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.BackColor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButtonLOGOUT.BorderRadius = 0;
+            this.bunifuFlatButtonLOGOUT.ButtonText = "Cerrar Sesión";
+            this.bunifuFlatButtonLOGOUT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionSidebarBack.SetDecoration(this.bunifuFlatButtonLOGOUT, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.bunifuFlatButtonLOGOUT, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuFlatButtonLOGOUT.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButtonLOGOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.bunifuFlatButtonLOGOUT.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButtonLOGOUT.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonLOGOUT.Iconimage")));
+            this.bunifuFlatButtonLOGOUT.Iconimage_right = null;
+            this.bunifuFlatButtonLOGOUT.Iconimage_right_Selected = null;
+            this.bunifuFlatButtonLOGOUT.Iconimage_Selected = null;
+            this.bunifuFlatButtonLOGOUT.IconMarginLeft = 0;
+            this.bunifuFlatButtonLOGOUT.IconMarginRight = 0;
+            this.bunifuFlatButtonLOGOUT.IconRightVisible = true;
+            this.bunifuFlatButtonLOGOUT.IconRightZoom = 0D;
+            this.bunifuFlatButtonLOGOUT.IconVisible = true;
+            this.bunifuFlatButtonLOGOUT.IconZoom = 60D;
+            this.bunifuFlatButtonLOGOUT.IsTab = false;
+            this.bunifuFlatButtonLOGOUT.Location = new System.Drawing.Point(165, 752);
+            this.bunifuFlatButtonLOGOUT.Name = "bunifuFlatButtonLOGOUT";
+            this.bunifuFlatButtonLOGOUT.Normalcolor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.OnHovercolor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButtonLOGOUT.selected = false;
+            this.bunifuFlatButtonLOGOUT.Size = new System.Drawing.Size(102, 27);
+            this.bunifuFlatButtonLOGOUT.TabIndex = 22;
+            this.bunifuFlatButtonLOGOUT.Text = "Cerrar Sesión";
+            this.bunifuFlatButtonLOGOUT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButtonLOGOUT.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButtonLOGOUT.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.bunifuFlatButtonLOGOUT.Click += new System.EventHandler(this.bunifuFlatButtonLOGOUT_Click);
             // 
             // bunifuCustomLabelStatus
             // 
@@ -497,6 +535,7 @@
             this.bunifuFlatButtonCORRELATIVITIES.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonCORRELATIVITIES.Textcolor = System.Drawing.Color.LightGray;
             this.bunifuFlatButtonCORRELATIVITIES.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.bunifuFlatButtonCORRELATIVITIES.Click += new System.EventHandler(this.bunifuFlatButtonCORRELATIVITIES_Click);
             // 
             // bunifuFlatButtonSUBJECTS
             // 
@@ -610,43 +649,43 @@
             // 
             this.AnimacionSidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.AnimacionSidebar.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 1;
-            animation3.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 2F;
-            animation3.TransparencyCoeff = 0F;
-            this.AnimacionSidebar.DefaultAnimation = animation3;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.AnimacionSidebar.DefaultAnimation = animation1;
             // 
             // AnimacionSidebarBack
             // 
             this.AnimacionSidebarBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.AnimacionSidebarBack.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.AnimacionSidebarBack.DefaultAnimation = animation4;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.AnimacionSidebarBack.DefaultAnimation = animation2;
             // 
             // RadioPanelChart
             // 
@@ -659,44 +698,6 @@
             this.MoverDashboard.Horizontal = true;
             this.MoverDashboard.TargetControl = this.MenuTop;
             this.MoverDashboard.Vertical = true;
-            // 
-            // bunifuFlatButtonLOGOUT
-            // 
-            this.bunifuFlatButtonLOGOUT.Activecolor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.BackColor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonLOGOUT.BorderRadius = 0;
-            this.bunifuFlatButtonLOGOUT.ButtonText = "Cerrar Sesión";
-            this.bunifuFlatButtonLOGOUT.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebarBack.SetDecoration(this.bunifuFlatButtonLOGOUT, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebar.SetDecoration(this.bunifuFlatButtonLOGOUT, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButtonLOGOUT.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButtonLOGOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.bunifuFlatButtonLOGOUT.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonLOGOUT.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonLOGOUT.Iconimage")));
-            this.bunifuFlatButtonLOGOUT.Iconimage_right = null;
-            this.bunifuFlatButtonLOGOUT.Iconimage_right_Selected = null;
-            this.bunifuFlatButtonLOGOUT.Iconimage_Selected = null;
-            this.bunifuFlatButtonLOGOUT.IconMarginLeft = 0;
-            this.bunifuFlatButtonLOGOUT.IconMarginRight = 0;
-            this.bunifuFlatButtonLOGOUT.IconRightVisible = true;
-            this.bunifuFlatButtonLOGOUT.IconRightZoom = 0D;
-            this.bunifuFlatButtonLOGOUT.IconVisible = true;
-            this.bunifuFlatButtonLOGOUT.IconZoom = 60D;
-            this.bunifuFlatButtonLOGOUT.IsTab = false;
-            this.bunifuFlatButtonLOGOUT.Location = new System.Drawing.Point(165, 752);
-            this.bunifuFlatButtonLOGOUT.Name = "bunifuFlatButtonLOGOUT";
-            this.bunifuFlatButtonLOGOUT.Normalcolor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.OnHovercolor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButtonLOGOUT.selected = false;
-            this.bunifuFlatButtonLOGOUT.Size = new System.Drawing.Size(102, 27);
-            this.bunifuFlatButtonLOGOUT.TabIndex = 22;
-            this.bunifuFlatButtonLOGOUT.Text = "Cerrar Sesión";
-            this.bunifuFlatButtonLOGOUT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButtonLOGOUT.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButtonLOGOUT.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.bunifuFlatButtonLOGOUT.Click += new System.EventHandler(this.bunifuFlatButtonLOGOUT_Click);
             // 
             // Init
             // 

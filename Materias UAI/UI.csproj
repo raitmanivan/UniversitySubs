@@ -64,6 +64,12 @@
     <Compile Include="Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
+    <Compile Include="CorrelativeSubjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorrelativeSubjects.Designer.cs">
+      <DependentUpon>CorrelativeSubjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Correlatividades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorrelativeSubjects.resx">
+      <DependentUpon>CorrelativeSubjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Correlatividades.resx">
       <DependentUpon>Correlatividades.cs</DependentUpon>

@@ -24,6 +24,7 @@ namespace MPP
         string QuerySelectPendingStudentSubjectsByYear = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam') AND subject.Year = ";
         string QuerySelectPendingAndPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam' OR studentsubject.Status = 'In course')";
         string QuerySelectAverageStudentSubjects = "SELECT AVG(Cast(Qualification as Float)) as Average FROM StudentSubject WHERE[Status] = 'Approved' AND[Qualification] IS NOT NULL AND StudentID = @StudentID";
+        string QuerySelectCorrelativeSubjects = "SELECT correlative.C_CorrelativeSubjectID as SubjectID FROM Subject as selectedsubject, Correlatives as correlative WHERE selectedsubject.SubjectID = correlative.C_SubjectID AND selectedsubject.SubjectID = @SubjectID";
 
         string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
         string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
@@ -123,6 +124,29 @@ namespace MPP
             else if (query == "Only in course student subjects")
                 return QuerySelectPendingStudentSubjects; 
             else return string.Empty;
+        }
+
+        public List<Subject> ListCorrelativeSubjects(Subject subject)
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@SubjectID", subject.SubjectID));
+            dt = access.Read(QuerySelectCorrelativeSubjects, parameters);
+
+            List<Subject> subjectList = new List<Subject>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    Subject NewSubject = new Subject();
+                    NewSubject = this.ListSubjectBySubjectID(Convert.ToInt32(fila["SubjectID"]));
+                    subjectList.Add(NewSubject);
+                }
+            }
+            return subjectList;
         }
 
         public List<StudentSubject> ListStudentSubjects(Student student, string query)

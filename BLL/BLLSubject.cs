@@ -30,6 +30,12 @@ namespace BLL
             return mapper.ListSubjectByName(name);
         }
 
+        public List<Subject> ListCorrelativeSubjects(Subject subject)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListCorrelativeSubjects(subject);
+        }
+
         public List<StudentSubject> ListStudentSubjects(Student student,string select)
         {
             MPPSubject mapper = new MPPSubject();
