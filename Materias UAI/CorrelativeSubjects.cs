@@ -38,6 +38,14 @@ namespace Materias_UAI
             this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = Color.Tomato;
             this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = Color.Tomato;
 
+            this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = Color.Tomato;
+            this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = Color.Tomato;
+
+        }
+
+        private void CleanSelectedSubjectName()
+        {
+            SelectedSubjectname = "Not Selected";
         }
 
         private void AllSubjects_Click(bool design)
@@ -93,17 +101,29 @@ namespace Materias_UAI
 
         private void bunifuFlatButtonCorrelativeSubjects_Click(object sender, EventArgs e)
         {
+            if(SelectedSubjectname == "Not Selected")
+            {
+                MessageBox.Show("Por favor seleccione una materia", "Información");
+                return;
+            }
+
             bunifuCustomDataGridSubjects.DataSource = null;
             List<Subject> AuxSubjects = BusinessSubject.ListCorrelativeSubjects(BusinessSubject.ListSubjectByName(SelectedSubjectname));
             if(AuxSubjects != null)
             {
                 bunifuCustomDataGridSubjects.DataSource = AuxSubjects;
+                #region Design...
                 bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
+                bunifuCustomLabelSubjectSelected.Text = "";
+                GoBackButtonColors();
+                this.bunifuFlatButtonCorrelativeSubjects.Normalcolor = Color.Coral;
+                this.bunifuFlatButtonCorrelativeSubjects.OnHovercolor = Color.Coral;
+                #endregion
             }
             else
             {
@@ -111,6 +131,101 @@ namespace Materias_UAI
                 MessageBox.Show("La materia seleccionada no tiene correlativas", "Información");
             }
 
+            CleanSelectedSubjectName();
+
+        }
+
+        private void bunifuFlatButtonViewRemainingSubjects_Click(object sender, EventArgs e)
+        {
+            bool readyToStudy = false;
+            int readyToStudyCount = 0;
+            bunifuCustomDataGridSubjects.DataSource = null;
+            List<Subject> SubjectReadyToStudy = new List<Subject>();
+
+            List<StudentSubject> PendingSubjects = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "Only pending student subjects");
+            if (PendingSubjects.Count != 0)
+            {
+                foreach (StudentSubject studentSubject in PendingSubjects)
+                {
+
+                    List<Subject> correlatives = BusinessSubject.ListCorrelativeSubjects(BusinessSubject.ListSubjectBySubjectID(studentSubject.Subject.SubjectID));
+                    if(correlatives != null)
+                    {
+                        foreach (Subject correlative in correlatives)
+                        {
+                            if (BusinessSubject.ListCorrelativeSubjects(BusinessSubject.ListApprovedSubjectBySubjectID(BusinessStudent.SearchStudentByUser(session.user), correlative.SubjectID)).Count == 0)
+                                readyToStudy = false;
+                            else
+                                readyToStudy = true;
+                            readyToStudyCount += 1;
+                        }
+
+                        if (correlatives.Count == readyToStudyCount && readyToStudy == true)
+                        {
+                            SubjectReadyToStudy.Add(studentSubject.Subject);
+                        }
+                        readyToStudyCount = 0;
+                        readyToStudy = false;
+                    }
+                    else
+                        SubjectReadyToStudy.Add(studentSubject.Subject);
+
+                }
+
+                bunifuCustomDataGridSubjects.DataSource = SubjectReadyToStudy;
+                #region Design...
+                bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
+                bunifuCustomLabelSubjectSelected.Text = "";
+                GoBackButtonColors();
+                this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = Color.Coral;
+                this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = Color.Coral;
+                #endregion
+            }
+            else
+            {
+                AllSubjects_Click(true);
+                MessageBox.Show("Ya no existen materias pendientes para el estudiante", "Información");
+            }
+        }
+
+        private void bunifuFlatButtonSubjectsToUnlock_Click(object sender, EventArgs e)
+        {
+            if (SelectedSubjectname == "Not Selected")
+            {
+                MessageBox.Show("Por favor seleccione una materia", "Información");
+                return;
+            }
+
+            bunifuCustomDataGridSubjects.DataSource = null;
+            List<Subject> AuxSubjects = BusinessSubject.ListUnlockSubjectsBySubject(BusinessSubject.ListSubjectByName(SelectedSubjectname));
+            if (AuxSubjects == null || AuxSubjects.Count == 0)
+            {
+                AllSubjects_Click(true);
+                MessageBox.Show("La materia seleccionada no desbloquea ninguna materia", "Información");
+            }
+            else
+            {
+                bunifuCustomDataGridSubjects.DataSource = AuxSubjects;
+                #region Design...
+                bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
+                bunifuCustomLabelSubjectSelected.Text = "";
+                GoBackButtonColors();
+                this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = Color.Coral;
+                this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = Color.Coral;
+                #endregion
+            }
+
+            CleanSelectedSubjectName();
         }
     }
 }

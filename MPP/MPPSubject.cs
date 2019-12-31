@@ -19,12 +19,15 @@ namespace MPP
         string QuerySelectSubjectByName = "Select * FROM Subject WHERE Name = @Name";
         string QuerySelectStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID";
         string QuerySelectApprovedStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Approved'";
-        string QuerySelectPendingStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'In course'";
+        string QuerySelectInCourseStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'In course'";
         string QuerySelectPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Pending exam'";
         string QuerySelectPendingStudentSubjectsByYear = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam') AND subject.Year = ";
         string QuerySelectPendingAndPendingExamStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification  FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND (studentsubject.Status  = 'Pending' OR studentsubject.Status = 'Pending exam' OR studentsubject.Status = 'In course')";
         string QuerySelectAverageStudentSubjects = "SELECT AVG(Cast(Qualification as Float)) as Average FROM StudentSubject WHERE[Status] = 'Approved' AND[Qualification] IS NOT NULL AND StudentID = @StudentID";
         string QuerySelectCorrelativeSubjects = "SELECT correlative.C_CorrelativeSubjectID as SubjectID FROM Subject as selectedsubject, Correlatives as correlative WHERE selectedsubject.SubjectID = correlative.C_SubjectID AND selectedsubject.SubjectID = @SubjectID";
+        string QuerySelectPendingStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Pending'";
+        string QuerySelectApprovedStudentSubject = "SELECT subject.SubjectID, subject.Name FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Approved' AND studentsubject.SubjectID = @SubjectID";
+        string QuerySelectUnlockSubjectBySubject = "SELECT correlative.C_SubjectID as SubjectID FROM Subject as selectedsubject, Correlatives as correlative WHERE selectedsubject.SubjectID = correlative.C_SubjectID AND correlative.C_CorrelativeSubjectID = @SubjectID";
 
         string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
         string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
@@ -111,6 +114,29 @@ namespace MPP
             return subject;
         }
 
+        public Subject ListApprovedSubjectBySubjectID(Student student, int SubjectID)
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@SubjectID", SubjectID));
+            parameters.Add(new Parameter("@StudentID", student.StudentID));
+            dt = access.Read(QuerySelectApprovedStudentSubject, parameters);
+
+            Subject subject = new Subject();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
+                    subject.Name = fila["Name"].ToString();
+                }
+            }
+            return subject;
+        }
+
         private string SelectQuery(string query)
         {
             if (query == "All student subjects")
@@ -121,8 +147,10 @@ namespace MPP
                 return QuerySelectPendingExamStudentSubjects;
             else if (query == "Only in course, pending and pending exam student subjects")
                 return QuerySelectPendingAndPendingExamStudentSubjects;
+            else if(query == "Only pending student subjects")
+                    return QuerySelectPendingStudentSubjects;
             else if (query == "Only in course student subjects")
-                return QuerySelectPendingStudentSubjects; 
+                return QuerySelectInCourseStudentSubjects; 
             else return string.Empty;
         }
 
@@ -134,6 +162,32 @@ namespace MPP
             List<Parameter> parameters = new List<Parameter>();
             parameters.Add(new Parameter("@SubjectID", subject.SubjectID));
             dt = access.Read(QuerySelectCorrelativeSubjects, parameters);
+
+            List<Subject> subjectList = new List<Subject>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    Subject NewSubject = new Subject();
+                    if (DBNull.Value.Equals(fila["SubjectID"]))
+                        return null;
+                    else
+                        NewSubject = this.ListSubjectBySubjectID(Convert.ToInt32(fila["SubjectID"]));
+                    subjectList.Add(NewSubject);
+                }
+            }
+            return subjectList;
+        }
+
+        public List<Subject> ListUnlockSubjectsBySubject(Subject subject)
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@SubjectID", subject.SubjectID));
+            dt = access.Read(QuerySelectUnlockSubjectBySubject, parameters);
 
             List<Subject> subjectList = new List<Subject>();
 

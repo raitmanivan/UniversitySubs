@@ -30,10 +30,22 @@ namespace BLL
             return mapper.ListSubjectByName(name);
         }
 
+        public Subject ListApprovedSubjectBySubjectID(Student student, int SubjectID)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListApprovedSubjectBySubjectID(student,SubjectID);
+        }
+
         public List<Subject> ListCorrelativeSubjects(Subject subject)
         {
             MPPSubject mapper = new MPPSubject();
             return mapper.ListCorrelativeSubjects(subject);
+        }
+
+        public List<Subject> ListUnlockSubjectsBySubject(Subject subject)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListUnlockSubjectsBySubject(subject);
         }
 
         public List<StudentSubject> ListStudentSubjects(Student student,string select)
