@@ -119,7 +119,7 @@
             this.bunifuFlatButtonCLEANFIELDS.Activecolor = System.Drawing.Color.Coral;
             this.bunifuFlatButtonCLEANFIELDS.BackColor = System.Drawing.Color.Coral;
             this.bunifuFlatButtonCLEANFIELDS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonCLEANFIELDS.BorderRadius = 0;
+            this.bunifuFlatButtonCLEANFIELDS.BorderRadius = 5;
             this.bunifuFlatButtonCLEANFIELDS.ButtonText = "Limpiar campos";
             this.bunifuFlatButtonCLEANFIELDS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButtonCLEANFIELDS.DisabledColor = System.Drawing.Color.Gray;
@@ -153,7 +153,7 @@
             this.bunifuFlatButtonLOGIN.Activecolor = System.Drawing.Color.Coral;
             this.bunifuFlatButtonLOGIN.BackColor = System.Drawing.Color.Coral;
             this.bunifuFlatButtonLOGIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonLOGIN.BorderRadius = 0;
+            this.bunifuFlatButtonLOGIN.BorderRadius = 2;
             this.bunifuFlatButtonLOGIN.ButtonText = "Ingresar";
             this.bunifuFlatButtonLOGIN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButtonLOGIN.DisabledColor = System.Drawing.Color.Gray;

@@ -48,7 +48,6 @@
             this.bunifuCustomLabelStudentID = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelNAME = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuTileButtonUSER = new Bunifu.Framework.UI.BunifuTileButton();
-            this.bunifuFlatButton7 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton6 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonSTATUS = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -203,7 +202,6 @@
             this.Sidebar.Controls.Add(this.bunifuCustomLabelStudentID);
             this.Sidebar.Controls.Add(this.bunifuCustomLabelNAME);
             this.Sidebar.Controls.Add(this.bunifuTileButtonUSER);
-            this.Sidebar.Controls.Add(this.bunifuFlatButton7);
             this.Sidebar.Controls.Add(this.bunifuFlatButton6);
             this.Sidebar.Controls.Add(this.bunifuFlatButton5);
             this.Sidebar.Controls.Add(this.bunifuFlatButtonSTATUS);
@@ -214,7 +212,7 @@
             this.Sidebar.Controls.Add(this.pictureBox1);
             this.AnimacionSidebarBack.SetDecoration(this.Sidebar, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.Sidebar, BunifuAnimatorNS.DecorationType.None);
-            this.Sidebar.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.Sidebar.GradientBottomLeft = System.Drawing.Color.Coral;
             this.Sidebar.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.Sidebar.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.Sidebar.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
@@ -226,8 +224,8 @@
             // 
             // bunifuFlatButtonLOGOUT
             // 
-            this.bunifuFlatButtonLOGOUT.Activecolor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.BackColor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.Activecolor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonLOGOUT.BackColor = System.Drawing.Color.Tomato;
             this.bunifuFlatButtonLOGOUT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButtonLOGOUT.BorderRadius = 0;
             this.bunifuFlatButtonLOGOUT.ButtonText = "Cerrar Sesión";
@@ -250,8 +248,8 @@
             this.bunifuFlatButtonLOGOUT.IsTab = false;
             this.bunifuFlatButtonLOGOUT.Location = new System.Drawing.Point(165, 752);
             this.bunifuFlatButtonLOGOUT.Name = "bunifuFlatButtonLOGOUT";
-            this.bunifuFlatButtonLOGOUT.Normalcolor = System.Drawing.Color.Crimson;
-            this.bunifuFlatButtonLOGOUT.OnHovercolor = System.Drawing.Color.Crimson;
+            this.bunifuFlatButtonLOGOUT.Normalcolor = System.Drawing.Color.Tomato;
+            this.bunifuFlatButtonLOGOUT.OnHovercolor = System.Drawing.Color.Tomato;
             this.bunifuFlatButtonLOGOUT.OnHoverTextColor = System.Drawing.Color.White;
             this.bunifuFlatButtonLOGOUT.selected = false;
             this.bunifuFlatButtonLOGOUT.Size = new System.Drawing.Size(102, 27);
@@ -334,9 +332,9 @@
             // 
             // bunifuTileButtonUSER
             // 
-            this.bunifuTileButtonUSER.BackColor = System.Drawing.Color.Crimson;
-            this.bunifuTileButtonUSER.color = System.Drawing.Color.Crimson;
-            this.bunifuTileButtonUSER.colorActive = System.Drawing.Color.Crimson;
+            this.bunifuTileButtonUSER.BackColor = System.Drawing.Color.Tomato;
+            this.bunifuTileButtonUSER.color = System.Drawing.Color.Tomato;
+            this.bunifuTileButtonUSER.colorActive = System.Drawing.Color.Tomato;
             this.bunifuTileButtonUSER.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebarBack.SetDecoration(this.bunifuTileButtonUSER, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.bunifuTileButtonUSER, BunifuAnimatorNS.DecorationType.None);
@@ -353,42 +351,6 @@
             this.bunifuTileButtonUSER.Size = new System.Drawing.Size(128, 129);
             this.bunifuTileButtonUSER.TabIndex = 15;
             this.bunifuTileButtonUSER.Click += new System.EventHandler(this.bunifuTileButtonUSER_Click);
-            // 
-            // bunifuFlatButton7
-            // 
-            this.bunifuFlatButton7.Activecolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton7.BorderRadius = 0;
-            this.bunifuFlatButton7.ButtonText = "      GANANCIAS";
-            this.bunifuFlatButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebarBack.SetDecoration(this.bunifuFlatButton7, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebar.SetDecoration(this.bunifuFlatButton7, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton7.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton7.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton7.Iconimage")));
-            this.bunifuFlatButton7.Iconimage_right = null;
-            this.bunifuFlatButton7.Iconimage_right_Selected = null;
-            this.bunifuFlatButton7.Iconimage_Selected = null;
-            this.bunifuFlatButton7.IconMarginLeft = 0;
-            this.bunifuFlatButton7.IconMarginRight = 0;
-            this.bunifuFlatButton7.IconRightVisible = true;
-            this.bunifuFlatButton7.IconRightZoom = 0D;
-            this.bunifuFlatButton7.IconVisible = true;
-            this.bunifuFlatButton7.IconZoom = 50D;
-            this.bunifuFlatButton7.IsTab = false;
-            this.bunifuFlatButton7.Location = new System.Drawing.Point(3, 428);
-            this.bunifuFlatButton7.Name = "bunifuFlatButton7";
-            this.bunifuFlatButton7.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.OnHovercolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton7.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton7.selected = false;
-            this.bunifuFlatButton7.Size = new System.Drawing.Size(252, 51);
-            this.bunifuFlatButton7.TabIndex = 14;
-            this.bunifuFlatButton7.Text = "      GANANCIAS";
-            this.bunifuFlatButton7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton7.Textcolor = System.Drawing.Color.LightGray;
-            this.bunifuFlatButton7.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
             // bunifuFlatButton6
             // 
@@ -741,7 +703,6 @@
         private System.Windows.Forms.Panel SidebarWrapper;
         private System.Windows.Forms.Panel Wrapper;
         private Bunifu.Framework.UI.BunifuGradientPanel Sidebar;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton7;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSTATUS;
