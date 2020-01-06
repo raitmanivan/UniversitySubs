@@ -172,5 +172,10 @@ namespace Materias_UAI
         {
             openChildForm(new CorrelativeSubjects());
         }
+
+        private void bunifuFlatButtonSTATUS_Click(object sender, EventArgs e)
+        {
+            openChildForm(new StudentStatus());
+        }
     }
 }

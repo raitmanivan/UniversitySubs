@@ -22,6 +22,7 @@ namespace Materias_UAI
         BLLStudent BusinessStudent = new BLLStudent();
         string SelectedSubjectname = "Not Selected";
 
+
         public CorrelativeSubjects()
         {
             InitializeComponent();
@@ -266,13 +267,23 @@ namespace Materias_UAI
 
         }
 
+        private int CalculateCorrespondingPeriod(int month)
+        {
+            if (month >= 3 && month <= 7)
+                return 1;
+            else
+                return 2;
+        }
         private void bunifuFlatButtonConfirmInscripcion_Click(object sender, EventArgs e)
         {
             InCourseStatus status = new InCourseStatus();
             try
             {
+                DateTime date = DateTime.Today;
                 foreach (DataGridViewTextBoxCell row in this.bunifuCustomDataGridSubjects.SelectedCells)
                 {
+                    Inscription StudentInscription = new Inscription(BusinessStudent.SearchStudentByUser(session.user), BusinessSubject.ListSubjectByName(row.Value.ToString()), date, date.Year, CalculateCorrespondingPeriod(date.Month));
+                    BusinessSubject.NewStudentInscription(StudentInscription);
                     BusinessSubject.ChangeStudentSubjectStatus(BusinessStudent.SearchStudentByUser(session.user), BusinessSubject.ListSubjectByName(row.Value.ToString()), status, null);
                 }
 

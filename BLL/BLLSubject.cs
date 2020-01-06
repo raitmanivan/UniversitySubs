@@ -110,5 +110,26 @@ namespace BLL
                 return false;
             }
         }
+
+        public bool NewStudentInscription(Inscription inscription)
+        {
+            MPPSubject mapper = new MPPSubject();
+            try
+            {
+                mapper.NewStudentInscription(inscription);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public List<Inscription> ListStudentInscriptionHistory(Student student)
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListStudentInscriptionHistory(student);
+        }
     }
 }

@@ -461,6 +461,7 @@
             this.bunifuFlatButtonSTATUS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonSTATUS.Textcolor = System.Drawing.Color.LightGray;
             this.bunifuFlatButtonSTATUS.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.bunifuFlatButtonSTATUS.Click += new System.EventHandler(this.bunifuFlatButtonSTATUS_Click);
             // 
             // bunifuFlatButtonCORRELATIVITIES
             // 

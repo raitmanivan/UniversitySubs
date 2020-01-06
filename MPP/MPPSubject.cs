@@ -28,9 +28,11 @@ namespace MPP
         string QuerySelectPendingStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Pending'";
         string QuerySelectApprovedStudentSubject = "SELECT subject.SubjectID, subject.Name FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID AND studentsubject.Status  = 'Approved' AND studentsubject.SubjectID = @SubjectID";
         string QuerySelectUnlockSubjectBySubject = "SELECT correlative.C_SubjectID as SubjectID FROM Subject as selectedsubject, Correlatives as correlative WHERE selectedsubject.SubjectID = correlative.C_SubjectID AND correlative.C_CorrelativeSubjectID = @SubjectID";
+        string QuerySelectStudentInscriptionHistory = "SELECT SubjectID,Date,Year,CorrespondingPeriod FROM StudentInscription WHERE StudentID = @StudentID";
 
         string QueryInsertSubject = "INSERT INTO Subject (SubjectID,Name,Year,Status,PeriodType,CorrespondingPeriod) VALUES (@SubjectID,@Name,@Year,@Status,@PeriodType,@CorrespondingPeriod)";
         string QueryInsertStudentSubject = "INSERT INTO StudentSubject (StudentID,SubjectID,Status,Qualification) VALUES (@StudentID,@SubjectID,@Status,@Qualification)";
+        string QueryInsertStudentInscription = "INSERT INTO StudentInscription (StudentID,SubjectID,Date,Year,CorrespondingPeriod) VALUES (@StudentID,@SubjectID,@Date,@Year,@CorrespondingPeriod)";
 
         string QueryUpdateStudentSubjectStatus = "UPDATE StudentSubject SET Status = @Status, Qualification = NULL WHERE SubjectID = @SubjectID";
         string QueryUpdateStudentSubjectStatusWithQualification = "UPDATE StudentSubject SET Status = @Status, Qualification = @Qualification WHERE SubjectID = @SubjectID AND StudentID = @StudentID";
@@ -357,6 +359,52 @@ namespace MPP
                 Console.WriteLine(ex.Message);
                 throw ex;
             }
+        }
+
+        public void NewStudentInscription(Inscription inscription)
+        {
+            Access access = new Access();
+            List<Parameter> parameters = new List<Parameter>();
+            try
+            {
+                parameters.Add(new Parameter("@StudentID", inscription.Student.StudentID));
+                parameters.Add(new Parameter("@SubjectID", inscription.Subject.SubjectID));
+                parameters.Add(new Parameter("@Date", inscription.Date));
+                parameters.Add(new Parameter("@Year", inscription.Year));
+                parameters.Add(new Parameter("@CorrespondingPeriod", inscription.CorrespondingPeriod));
+                access.Write(QueryInsertStudentInscription, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public List<Inscription> ListStudentInscriptionHistory(Student student)
+        {
+            Access access = new Access();
+            MPPSubject mapperSubject = new MPPSubject();
+            DataTable dt = default(DataTable);
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@StudentID", student.StudentID));
+            dt = access.Read(QuerySelectStudentInscriptionHistory, parameters);
+
+            List<Inscription> inscriptions = new List<Inscription>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    Inscription inscription = new Inscription();
+                    inscription.Subject = mapperSubject.ListSubjectBySubjectID(Convert.ToInt32(fila["SubjectID"]));
+                    inscription.Date = Convert.ToDateTime(fila["Date"].ToString());
+                    inscription.Year = Convert.ToInt32(fila["Year"]);
+                    inscription.CorrespondingPeriod = Convert.ToInt32(fila["CorrespondingPeriod"]);
+                    inscriptions.Add(inscription);
+                }
+            }
+            return inscriptions;
         }
 
     }
