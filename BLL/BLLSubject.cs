@@ -126,10 +126,10 @@ namespace BLL
             }
         }
 
-        public List<Inscription> ListStudentInscriptionHistory(Student student)
+        public List<Inscription> ListStudentInscriptionHistory(Student student,Status status)
         {
             MPPSubject mapper = new MPPSubject();
-            return mapper.ListStudentInscriptionHistory(student);
+            return mapper.ListStudentInscriptionHistory(student,status);
         }
 
         public bool CancelStudentInscription(Inscription inscription)

@@ -30,13 +30,17 @@ namespace Materias_UAI
         private void bunifuFlatButtonInscriptionHistory_Click(object sender, EventArgs e)
         {
             this.bunifuCustomDataGridSubjects.DataSource = null;
-            this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user));
+            ConfirmedStatus status = new ConfirmedStatus();
+            this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user), status);
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
             bunifuCustomLabelSubjectSelected.Text = "";
 
             GoBackButtonColors();
             this.bunifuFlatButtonInscriptionHistory.Normalcolor = Color.Coral;
             this.bunifuFlatButtonInscriptionHistory.OnHovercolor = Color.Coral;
+            this.bunifuiOSSwitchMoreDetails.Visible = true;
+            this.bunifuCustomLabelMoreDetails.Visible = true;
+            this.bunifuiOSSwitchMoreDetails.Value = false;
 
         }
 
@@ -53,6 +57,8 @@ namespace Materias_UAI
             this.bunifuFlatButtonInscriptionHistory.OnHovercolor = Color.Tomato;
 
             this.bunifuFlatButtonConfirmInscripcion.Visible = false;
+            this.bunifuiOSSwitchMoreDetails.Visible = false;
+            this.bunifuCustomLabelMoreDetails.Visible = false;
         }
 
 
@@ -162,7 +168,7 @@ namespace Materias_UAI
                 bunifuCustomLabelSubjectSelected.Text = SelectedSubjectname;
                 this.bunifuFlatButtonConfirmInscripcion.Visible = true;
             }
-            else if(this.bunifuFlatButtonInscriptionHistory.OnHovercolor == Color.Coral)
+            else if (this.bunifuFlatButtonInscriptionHistory.OnHovercolor == Color.Coral)
             {
                 SelectedSubjectname = this.bunifuCustomDataGridSubjects.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
@@ -177,7 +183,7 @@ namespace Materias_UAI
             try
             {
                 DataGridViewSelectedRowCollection selected = this.bunifuCustomDataGridSubjects.SelectedRows;
-                if(selected.Count == 0)
+                if (selected.Count == 0)
                 {
                     MessageBox.Show("Seleccione las materias deseadas", "Información");
                     return;
@@ -198,8 +204,9 @@ namespace Materias_UAI
             }
 
 
+            ConfirmedStatus status = new ConfirmedStatus();
             this.bunifuCustomDataGridSubjects.DataSource = null;
-            this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user));
+            this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user), status);
             bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
 
             GoBackButtonColors();
@@ -212,6 +219,8 @@ namespace Materias_UAI
         private void StudentStatus_Load(object sender, EventArgs e)
         {
             bunifuCustomLabelSubjectSelected.Text = "";
+            this.bunifuiOSSwitchMoreDetails.Visible = false;
+            this.bunifuCustomLabelMoreDetails.Visible = false;
             AllSubjects_Click(false);
         }
 
@@ -261,6 +270,24 @@ namespace Materias_UAI
             }
 
             this.bunifuFlatButtonConfirmInscripcion.Visible = false;
+        }
+
+        private void bunifuiOSSwitchMoreDetails_OnValueChange(object sender, EventArgs e)
+        {
+            if (this.bunifuiOSSwitchMoreDetails.Value)
+            {
+                CancelledStatus status = new CancelledStatus();
+                this.bunifuCustomDataGridSubjects.DataSource = null;
+                this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user), status);
+                bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            }
+            else
+            {
+                ConfirmedStatus status = new ConfirmedStatus();
+                this.bunifuCustomDataGridSubjects.DataSource = null;
+                this.bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentInscriptionHistory(BusinessStudent.SearchStudentByUser(session.user), status);
+                bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
+            }
         }
     }
 }

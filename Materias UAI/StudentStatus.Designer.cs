@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentStatus));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomLabelSubjectSelected = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelSubjectSelectedTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -43,12 +43,12 @@
             this.SidebarSubjects = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.bunifuFlatButtonConfirmInscripcion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonSubjectInscripcion = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButtonSubjectsToUnlock = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButtonViewRemainingSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonCancelSubjectInscription = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonInscriptionHistory = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LineaSidebar = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuCustomLabelMoreDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuiOSSwitchMoreDetails = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGridSubjects)).BeginInit();
             this.SidebarSubjects.SuspendLayout();
@@ -159,19 +159,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -206,8 +206,6 @@
             this.SidebarSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonConfirmInscripcion);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectInscripcion);
-            this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectsToUnlock);
-            this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonViewRemainingSubjects);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonCancelSubjectInscription);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonInscriptionHistory);
             this.SidebarSubjects.Controls.Add(this.LineaSidebar);
@@ -217,6 +215,7 @@
             this.SidebarSubjects.GradientTopLeft = System.Drawing.Color.Tomato;
             this.SidebarSubjects.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.SidebarSubjects.Location = new System.Drawing.Point(734, 94);
+            this.SidebarSubjects.MaximumSize = new System.Drawing.Size(274, 363);
             this.SidebarSubjects.Name = "SidebarSubjects";
             this.SidebarSubjects.Quality = 10;
             this.SidebarSubjects.Size = new System.Drawing.Size(274, 363);
@@ -293,74 +292,6 @@
             this.bunifuFlatButtonSubjectInscripcion.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonSubjectInscripcion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButtonSubjectInscripcion.Click += new System.EventHandler(this.bunifuFlatButtonSubjectInscripcion_Click);
-            // 
-            // bunifuFlatButtonSubjectsToUnlock
-            // 
-            this.bunifuFlatButtonSubjectsToUnlock.Activecolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectsToUnlock.BackColor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectsToUnlock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonSubjectsToUnlock.BorderRadius = 0;
-            this.bunifuFlatButtonSubjectsToUnlock.ButtonText = "¿Qué desbloquea?";
-            this.bunifuFlatButtonSubjectsToUnlock.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButtonSubjectsToUnlock.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButtonSubjectsToUnlock.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonSubjectsToUnlock.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonSubjectsToUnlock.Iconimage")));
-            this.bunifuFlatButtonSubjectsToUnlock.Iconimage_right = null;
-            this.bunifuFlatButtonSubjectsToUnlock.Iconimage_right_Selected = null;
-            this.bunifuFlatButtonSubjectsToUnlock.Iconimage_Selected = null;
-            this.bunifuFlatButtonSubjectsToUnlock.IconMarginLeft = 0;
-            this.bunifuFlatButtonSubjectsToUnlock.IconMarginRight = 0;
-            this.bunifuFlatButtonSubjectsToUnlock.IconRightVisible = true;
-            this.bunifuFlatButtonSubjectsToUnlock.IconRightZoom = 0D;
-            this.bunifuFlatButtonSubjectsToUnlock.IconVisible = true;
-            this.bunifuFlatButtonSubjectsToUnlock.IconZoom = 90D;
-            this.bunifuFlatButtonSubjectsToUnlock.IsTab = false;
-            this.bunifuFlatButtonSubjectsToUnlock.Location = new System.Drawing.Point(39, 248);
-            this.bunifuFlatButtonSubjectsToUnlock.Name = "bunifuFlatButtonSubjectsToUnlock";
-            this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectsToUnlock.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButtonSubjectsToUnlock.selected = false;
-            this.bunifuFlatButtonSubjectsToUnlock.Size = new System.Drawing.Size(201, 44);
-            this.bunifuFlatButtonSubjectsToUnlock.TabIndex = 14;
-            this.bunifuFlatButtonSubjectsToUnlock.Text = "¿Qué desbloquea?";
-            this.bunifuFlatButtonSubjectsToUnlock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButtonSubjectsToUnlock.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButtonSubjectsToUnlock.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // bunifuFlatButtonViewRemainingSubjects
-            // 
-            this.bunifuFlatButtonViewRemainingSubjects.Activecolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonViewRemainingSubjects.BackColor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonViewRemainingSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonViewRemainingSubjects.BorderRadius = 0;
-            this.bunifuFlatButtonViewRemainingSubjects.ButtonText = "¿Qué puedo cursar?";
-            this.bunifuFlatButtonViewRemainingSubjects.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButtonViewRemainingSubjects.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButtonViewRemainingSubjects.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonViewRemainingSubjects.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonViewRemainingSubjects.Iconimage")));
-            this.bunifuFlatButtonViewRemainingSubjects.Iconimage_right = null;
-            this.bunifuFlatButtonViewRemainingSubjects.Iconimage_right_Selected = null;
-            this.bunifuFlatButtonViewRemainingSubjects.Iconimage_Selected = null;
-            this.bunifuFlatButtonViewRemainingSubjects.IconMarginLeft = 0;
-            this.bunifuFlatButtonViewRemainingSubjects.IconMarginRight = 0;
-            this.bunifuFlatButtonViewRemainingSubjects.IconRightVisible = true;
-            this.bunifuFlatButtonViewRemainingSubjects.IconRightZoom = 0D;
-            this.bunifuFlatButtonViewRemainingSubjects.IconVisible = true;
-            this.bunifuFlatButtonViewRemainingSubjects.IconZoom = 90D;
-            this.bunifuFlatButtonViewRemainingSubjects.IsTab = false;
-            this.bunifuFlatButtonViewRemainingSubjects.Location = new System.Drawing.Point(39, 198);
-            this.bunifuFlatButtonViewRemainingSubjects.Name = "bunifuFlatButtonViewRemainingSubjects";
-            this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonViewRemainingSubjects.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButtonViewRemainingSubjects.selected = false;
-            this.bunifuFlatButtonViewRemainingSubjects.Size = new System.Drawing.Size(201, 44);
-            this.bunifuFlatButtonViewRemainingSubjects.TabIndex = 13;
-            this.bunifuFlatButtonViewRemainingSubjects.Text = "¿Qué puedo cursar?";
-            this.bunifuFlatButtonViewRemainingSubjects.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButtonViewRemainingSubjects.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButtonViewRemainingSubjects.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // bunifuFlatButtonCancelSubjectInscription
             // 
@@ -456,11 +387,38 @@
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
             // 
+            // bunifuCustomLabelMoreDetails
+            // 
+            this.bunifuCustomLabelMoreDetails.AutoSize = true;
+            this.bunifuCustomLabelMoreDetails.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuCustomLabelMoreDetails.Location = new System.Drawing.Point(913, 466);
+            this.bunifuCustomLabelMoreDetails.Name = "bunifuCustomLabelMoreDetails";
+            this.bunifuCustomLabelMoreDetails.Size = new System.Drawing.Size(54, 17);
+            this.bunifuCustomLabelMoreDetails.TabIndex = 50;
+            this.bunifuCustomLabelMoreDetails.Text = "Detalle";
+            // 
+            // bunifuiOSSwitchMoreDetails
+            // 
+            this.bunifuiOSSwitchMoreDetails.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuiOSSwitchMoreDetails.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuiOSSwitchMoreDetails.BackgroundImage")));
+            this.bunifuiOSSwitchMoreDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuiOSSwitchMoreDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuiOSSwitchMoreDetails.Location = new System.Drawing.Point(973, 463);
+            this.bunifuiOSSwitchMoreDetails.Name = "bunifuiOSSwitchMoreDetails";
+            this.bunifuiOSSwitchMoreDetails.OffColor = System.Drawing.Color.Gray;
+            this.bunifuiOSSwitchMoreDetails.OnColor = System.Drawing.Color.Tomato;
+            this.bunifuiOSSwitchMoreDetails.Size = new System.Drawing.Size(35, 20);
+            this.bunifuiOSSwitchMoreDetails.TabIndex = 49;
+            this.bunifuiOSSwitchMoreDetails.Value = false;
+            this.bunifuiOSSwitchMoreDetails.OnValueChange += new System.EventHandler(this.bunifuiOSSwitchMoreDetails_OnValueChange);
+            // 
             // StudentStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 745);
+            this.Controls.Add(this.bunifuCustomLabelMoreDetails);
+            this.Controls.Add(this.bunifuiOSSwitchMoreDetails);
             this.Controls.Add(this.bunifuCustomLabelSubjectSelected);
             this.Controls.Add(this.bunifuCustomLabelSubjectSelectedTitle);
             this.Controls.Add(this.bunifuMaterialTextbox1);
@@ -496,11 +454,11 @@
         private Bunifu.Framework.UI.BunifuGradientPanel SidebarSubjects;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonConfirmInscripcion;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectInscripcion;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectsToUnlock;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonViewRemainingSubjects;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonCancelSubjectInscription;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonInscriptionHistory;
         private Bunifu.Framework.UI.BunifuSeparator LineaSidebar;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelMoreDetails;
+        private Bunifu.Framework.UI.BunifuiOSSwitch bunifuiOSSwitchMoreDetails;
     }
 }

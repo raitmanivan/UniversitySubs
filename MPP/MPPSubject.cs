@@ -383,7 +383,7 @@ namespace MPP
             }
         }
 
-        public List<Inscription> ListStudentInscriptionHistory(Student student)
+        public List<Inscription> ListStudentInscriptionHistory(Student student,Status status)
         {
             Access access = new Access();
             MPPSubject mapperSubject = new MPPSubject();
@@ -391,7 +391,11 @@ namespace MPP
             DataTable dt = default(DataTable);
             List<Parameter> parameters = new List<Parameter>();
             parameters.Add(new Parameter("@StudentID", student.StudentID));
-            dt = access.Read(QuerySelectStudentInscriptionHistory, parameters);
+
+            if(status.status == "Confirmed")
+                dt = access.Read(QuerySelectStudentInscriptionHistory + " AND Status = 'Confirmed'", parameters);
+            else
+                dt = access.Read(QuerySelectStudentInscriptionHistory, parameters);
 
             List<Inscription> inscriptions = new List<Inscription>();
 
