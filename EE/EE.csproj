@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inscription.cs" />
+    <Compile Include="States\CancelledStatus.cs" />
+    <Compile Include="States\ConfirmedStatus.cs" />
     <Compile Include="States\InactiveStatus.cs" />
     <Compile Include="States\ActiveStatus.cs" />
     <Compile Include="States\InCourseStatus.cs" />

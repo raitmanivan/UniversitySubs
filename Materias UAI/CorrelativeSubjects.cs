@@ -22,6 +22,7 @@ namespace Materias_UAI
         BLLStudent BusinessStudent = new BLLStudent();
         string SelectedSubjectname = "Not Selected";
 
+
         public CorrelativeSubjects()
         {
             InitializeComponent();
@@ -41,10 +42,6 @@ namespace Materias_UAI
             this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = Color.Tomato;
             this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = Color.Tomato;
 
-            this.bunifuFlatButtonSubjectInscripcion.Normalcolor = Color.Tomato;
-            this.bunifuFlatButtonSubjectInscripcion.OnHovercolor = Color.Tomato;
-
-            this.bunifuFlatButtonConfirmInscripcion.Visible = false;
         }
 
         private void CleanSelectedSubjectName()
@@ -101,9 +98,6 @@ namespace Materias_UAI
         {
             SelectedSubjectname = this.bunifuCustomDataGridSubjects.Rows[e.RowIndex].Cells[1].Value.ToString();
             bunifuCustomLabelSubjectSelected.Text = SelectedSubjectname;
-
-            if(this.bunifuFlatButtonSubjectInscripcion.OnHovercolor == Color.Coral)
-                this.bunifuFlatButtonConfirmInscripcion.Visible = true;
         }
 
         private void bunifuFlatButtonCorrelativeSubjects_Click(object sender, EventArgs e)
@@ -144,61 +138,6 @@ namespace Materias_UAI
 
         private void bunifuFlatButtonViewRemainingSubjects_Click(object sender, EventArgs e)
         {
-            if (ViewRemainingSubjects())
-            {
-                #region Design...
-                bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
-                bunifuCustomLabelSubjectSelected.Text = "";
-                GoBackButtonColors();
-                this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = Color.Coral;
-                this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = Color.Coral;
-                #endregion
-            }
-            
-        }
-
-        private void bunifuFlatButtonSubjectsToUnlock_Click(object sender, EventArgs e)
-        {
-            if (SelectedSubjectname == "Not Selected")
-            {
-                MessageBox.Show("Por favor seleccione una materia", "Información");
-                return;
-            }
-
-            bunifuCustomDataGridSubjects.DataSource = null;
-            List<Subject> AuxSubjects = BusinessSubject.ListUnlockSubjectsBySubject(BusinessSubject.ListSubjectByName(SelectedSubjectname));
-            if (AuxSubjects == null || AuxSubjects.Count == 0)
-            {
-                AllSubjects_Click(true);
-                MessageBox.Show("La materia seleccionada no desbloquea ninguna materia", "Información");
-            }
-            else
-            {
-                bunifuCustomDataGridSubjects.DataSource = AuxSubjects;
-                #region Design...
-                bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
-                bunifuCustomLabelSubjectSelected.Text = "";
-                GoBackButtonColors();
-                this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = Color.Coral;
-                this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = Color.Coral;
-                #endregion
-            }
-
-            CleanSelectedSubjectName();
-        }
-
-        private bool ViewRemainingSubjects()
-        {
             bool readyToStudy = false;
             int readyToStudyCount = 0;
             bunifuCustomDataGridSubjects.DataSource = null;
@@ -234,72 +173,61 @@ namespace Materias_UAI
                 }
 
                 bunifuCustomDataGridSubjects.DataSource = SubjectReadyToStudy;
-                return true;
-            }
-            else
-            {
-                AllSubjects_Click(true);
-                MessageBox.Show("Ya no existen materias pendientes para el estudiante", "Información");
-                return false;
-            }
-        }
 
-
-
-        private void bunifuFlatButtonSubjectInscripcion_Click(object sender, EventArgs e)
-        {
-            if(ViewRemainingSubjects())
-            {
                 #region Design...
                 bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
-                bunifuCustomDataGridSubjects.Columns["Name"].Width = 500;
+                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
                 bunifuCustomLabelSubjectSelected.Text = "";
                 GoBackButtonColors();
-                this.bunifuFlatButtonSubjectInscripcion.Normalcolor = Color.Coral;
-                this.bunifuFlatButtonSubjectInscripcion.OnHovercolor = Color.Coral;
+                this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = Color.Coral;
+                this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = Color.Coral;
+                #endregion
+
+            }
+            else
+            {
+                AllSubjects_Click(true);
+                MessageBox.Show("Ya no existen materias pendientes para el estudiante", "Información");
+            }      
+        }
+
+        private void bunifuFlatButtonSubjectsToUnlock_Click(object sender, EventArgs e)
+        {
+            if (SelectedSubjectname == "Not Selected")
+            {
+                MessageBox.Show("Por favor seleccione una materia", "Información");
+                return;
+            }
+
+            bunifuCustomDataGridSubjects.DataSource = null;
+            List<Subject> AuxSubjects = BusinessSubject.ListUnlockSubjectsBySubject(BusinessSubject.ListSubjectByName(SelectedSubjectname));
+            if (AuxSubjects == null || AuxSubjects.Count == 0)
+            {
+                AllSubjects_Click(true);
+                MessageBox.Show("La materia seleccionada no desbloquea ninguna materia", "Información");
+            }
+            else
+            {
+                bunifuCustomDataGridSubjects.DataSource = AuxSubjects;
+                #region Design...
+                bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
+                bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
+                bunifuCustomLabelSubjectSelected.Text = "";
+                GoBackButtonColors();
+                this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = Color.Coral;
+                this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = Color.Coral;
                 #endregion
             }
 
-        }
-
-        private void bunifuFlatButtonConfirmInscripcion_Click(object sender, EventArgs e)
-        {
-            InCourseStatus status = new InCourseStatus();
-            try
-            {
-                foreach (DataGridViewTextBoxCell row in this.bunifuCustomDataGridSubjects.SelectedCells)
-                {
-                    BusinessSubject.ChangeStudentSubjectStatus(BusinessStudent.SearchStudentByUser(session.user), BusinessSubject.ListSubjectByName(row.Value.ToString()), status, null);
-                }
-
-                MessageBox.Show("Inscripción realizada correctamente", "Información");
-                if (ViewRemainingSubjects())
-                {
-                    #region Design...
-                    bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
-                    bunifuCustomDataGridSubjects.Columns["Year"].Visible = false;
-                    bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
-                    bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
-                    bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
-                    bunifuCustomDataGridSubjects.Columns["Name"].Width = 500;
-                    bunifuCustomLabelSubjectSelected.Text = "";
-                    GoBackButtonColors();
-                    this.bunifuFlatButtonSubjectInscripcion.Normalcolor = Color.Coral;
-                    this.bunifuFlatButtonSubjectInscripcion.OnHovercolor = Color.Coral;
-                    #endregion
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrio un error en la inscripción", "Contactese con un administrador");
-                Console.WriteLine(ex.Message);
-            }
-
-            this.bunifuFlatButtonConfirmInscripcion.Visible = false;
-        }
+            CleanSelectedSubjectName();
+        } 
     }
 }
