@@ -131,5 +131,20 @@ namespace BLL
             MPPSubject mapper = new MPPSubject();
             return mapper.ListStudentInscriptionHistory(student);
         }
+
+        public bool CancelStudentInscription(Inscription inscription)
+        {
+            MPPSubject mapper = new MPPSubject();
+            try
+            {
+                mapper.CancelStudentInscription(inscription);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
     }
 }

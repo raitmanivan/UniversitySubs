@@ -24,6 +24,10 @@ namespace MPP
                 return new InactiveStatus();
             else if (status == "En curso" || status == "In course")
                 return new InCourseStatus();
+            else if (status == "Confirmed" || status == "Confirmada")
+                return new ConfirmedStatus();
+            else if (status == "Cancelled" || status == "Cancelada")
+                return new CancelledStatus();
             else
                 return null;
         }

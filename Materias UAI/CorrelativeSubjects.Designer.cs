@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CorrelativeSubjects));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomLabelSubjectSelected = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelSubjectSelectedTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -41,14 +41,12 @@
             this.bunifuCustomDataGridSubjects = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.SidebarSubjects = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.bunifuFlatButtonSubjectInscripcion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonSubjectsToUnlock = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonViewRemainingSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonCorrelativeSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButtonAllSubjects = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LineaSidebar = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.bunifuFlatButtonConfirmInscripcion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCards1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGridSubjects)).BeginInit();
             this.SidebarSubjects.SuspendLayout();
@@ -159,19 +157,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -204,8 +202,6 @@
             this.SidebarSubjects.BackColor = System.Drawing.Color.Tomato;
             this.SidebarSubjects.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SidebarSubjects.BackgroundImage")));
             this.SidebarSubjects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonConfirmInscripcion);
-            this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectInscripcion);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonSubjectsToUnlock);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonViewRemainingSubjects);
             this.SidebarSubjects.Controls.Add(this.bunifuFlatButtonCorrelativeSubjects);
@@ -221,41 +217,6 @@
             this.SidebarSubjects.Quality = 10;
             this.SidebarSubjects.Size = new System.Drawing.Size(274, 363);
             this.SidebarSubjects.TabIndex = 36;
-            // 
-            // bunifuFlatButtonSubjectInscripcion
-            // 
-            this.bunifuFlatButtonSubjectInscripcion.Activecolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectInscripcion.BackColor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectInscripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonSubjectInscripcion.BorderRadius = 0;
-            this.bunifuFlatButtonSubjectInscripcion.ButtonText = "Incripción a materias";
-            this.bunifuFlatButtonSubjectInscripcion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButtonSubjectInscripcion.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButtonSubjectInscripcion.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonSubjectInscripcion.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonSubjectInscripcion.Iconimage")));
-            this.bunifuFlatButtonSubjectInscripcion.Iconimage_right = null;
-            this.bunifuFlatButtonSubjectInscripcion.Iconimage_right_Selected = null;
-            this.bunifuFlatButtonSubjectInscripcion.Iconimage_Selected = null;
-            this.bunifuFlatButtonSubjectInscripcion.IconMarginLeft = 0;
-            this.bunifuFlatButtonSubjectInscripcion.IconMarginRight = 0;
-            this.bunifuFlatButtonSubjectInscripcion.IconRightVisible = true;
-            this.bunifuFlatButtonSubjectInscripcion.IconRightZoom = 0D;
-            this.bunifuFlatButtonSubjectInscripcion.IconVisible = true;
-            this.bunifuFlatButtonSubjectInscripcion.IconZoom = 90D;
-            this.bunifuFlatButtonSubjectInscripcion.IsTab = false;
-            this.bunifuFlatButtonSubjectInscripcion.Location = new System.Drawing.Point(39, 245);
-            this.bunifuFlatButtonSubjectInscripcion.Name = "bunifuFlatButtonSubjectInscripcion";
-            this.bunifuFlatButtonSubjectInscripcion.Normalcolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectInscripcion.OnHovercolor = System.Drawing.Color.Tomato;
-            this.bunifuFlatButtonSubjectInscripcion.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButtonSubjectInscripcion.selected = false;
-            this.bunifuFlatButtonSubjectInscripcion.Size = new System.Drawing.Size(201, 44);
-            this.bunifuFlatButtonSubjectInscripcion.TabIndex = 15;
-            this.bunifuFlatButtonSubjectInscripcion.Text = "Incripción a materias";
-            this.bunifuFlatButtonSubjectInscripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButtonSubjectInscripcion.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButtonSubjectInscripcion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButtonSubjectInscripcion.Click += new System.EventHandler(this.bunifuFlatButtonSubjectInscripcion_Click);
             // 
             // bunifuFlatButtonSubjectsToUnlock
             // 
@@ -421,43 +382,6 @@
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
             // 
-            // bunifuFlatButtonConfirmInscripcion
-            // 
-            this.bunifuFlatButtonConfirmInscripcion.Activecolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonConfirmInscripcion.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonConfirmInscripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButtonConfirmInscripcion.BorderRadius = 0;
-            this.bunifuFlatButtonConfirmInscripcion.ButtonText = "Confirmar";
-            this.bunifuFlatButtonConfirmInscripcion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButtonConfirmInscripcion.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButtonConfirmInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButtonConfirmInscripcion.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonConfirmInscripcion.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButtonConfirmInscripcion.Iconimage")));
-            this.bunifuFlatButtonConfirmInscripcion.Iconimage_right = null;
-            this.bunifuFlatButtonConfirmInscripcion.Iconimage_right_Selected = null;
-            this.bunifuFlatButtonConfirmInscripcion.Iconimage_Selected = null;
-            this.bunifuFlatButtonConfirmInscripcion.IconMarginLeft = 0;
-            this.bunifuFlatButtonConfirmInscripcion.IconMarginRight = 0;
-            this.bunifuFlatButtonConfirmInscripcion.IconRightVisible = true;
-            this.bunifuFlatButtonConfirmInscripcion.IconRightZoom = 0D;
-            this.bunifuFlatButtonConfirmInscripcion.IconVisible = true;
-            this.bunifuFlatButtonConfirmInscripcion.IconZoom = 90D;
-            this.bunifuFlatButtonConfirmInscripcion.IsTab = false;
-            this.bunifuFlatButtonConfirmInscripcion.Location = new System.Drawing.Point(67, 305);
-            this.bunifuFlatButtonConfirmInscripcion.Name = "bunifuFlatButtonConfirmInscripcion";
-            this.bunifuFlatButtonConfirmInscripcion.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonConfirmInscripcion.OnHovercolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButtonConfirmInscripcion.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButtonConfirmInscripcion.selected = false;
-            this.bunifuFlatButtonConfirmInscripcion.Size = new System.Drawing.Size(207, 44);
-            this.bunifuFlatButtonConfirmInscripcion.TabIndex = 16;
-            this.bunifuFlatButtonConfirmInscripcion.Text = "Confirmar";
-            this.bunifuFlatButtonConfirmInscripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButtonConfirmInscripcion.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButtonConfirmInscripcion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuFlatButtonConfirmInscripcion.Visible = false;
-            this.bunifuFlatButtonConfirmInscripcion.Click += new System.EventHandler(this.bunifuFlatButtonConfirmInscripcion_Click);
-            // 
             // CorrelativeSubjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +418,6 @@
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuGradientPanel SidebarSubjects;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectInscripcion;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonSubjectsToUnlock;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonViewRemainingSubjects;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonCorrelativeSubjects;
@@ -502,6 +425,5 @@
         private Bunifu.Framework.UI.BunifuSeparator LineaSidebar;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGridSubjects;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButtonConfirmInscripcion;
     }
 }

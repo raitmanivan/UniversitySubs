@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentStatus));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomLabelSubjectSelected = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelSubjectSelectedTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -58,7 +58,7 @@
             // 
             this.bunifuCustomLabelSubjectSelected.AutoSize = true;
             this.bunifuCustomLabelSubjectSelected.Font = new System.Drawing.Font("Century Gothic", 7F);
-            this.bunifuCustomLabelSubjectSelected.Location = new System.Drawing.Point(553, 477);
+            this.bunifuCustomLabelSubjectSelected.Location = new System.Drawing.Point(532, 477);
             this.bunifuCustomLabelSubjectSelected.Name = "bunifuCustomLabelSubjectSelected";
             this.bunifuCustomLabelSubjectSelected.Size = new System.Drawing.Size(120, 15);
             this.bunifuCustomLabelSubjectSelected.TabIndex = 48;
@@ -68,7 +68,7 @@
             // 
             this.bunifuCustomLabelSubjectSelectedTitle.AutoSize = true;
             this.bunifuCustomLabelSubjectSelectedTitle.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.bunifuCustomLabelSubjectSelectedTitle.Location = new System.Drawing.Point(425, 477);
+            this.bunifuCustomLabelSubjectSelectedTitle.Location = new System.Drawing.Point(404, 477);
             this.bunifuCustomLabelSubjectSelectedTitle.Name = "bunifuCustomLabelSubjectSelectedTitle";
             this.bunifuCustomLabelSubjectSelectedTitle.Size = new System.Drawing.Size(131, 16);
             this.bunifuCustomLabelSubjectSelectedTitle.TabIndex = 47;
@@ -159,19 +159,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -183,6 +183,7 @@
             this.bunifuCustomDataGridSubjects.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.bunifuCustomDataGridSubjects.Size = new System.Drawing.Size(658, 363);
             this.bunifuCustomDataGridSubjects.TabIndex = 0;
+            this.bunifuCustomDataGridSubjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuCustomDataGridSubjects_CellContentClick);
             // 
             // bunifuSeparator1
             // 
@@ -256,6 +257,7 @@
             this.bunifuFlatButtonConfirmInscripcion.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonConfirmInscripcion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButtonConfirmInscripcion.Visible = false;
+            this.bunifuFlatButtonConfirmInscripcion.Click += new System.EventHandler(this.bunifuFlatButtonConfirmInscripcion_Click);
             // 
             // bunifuFlatButtonSubjectInscripcion
             // 
@@ -290,6 +292,7 @@
             this.bunifuFlatButtonSubjectInscripcion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonSubjectInscripcion.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonSubjectInscripcion.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonSubjectInscripcion.Click += new System.EventHandler(this.bunifuFlatButtonSubjectInscripcion_Click);
             // 
             // bunifuFlatButtonSubjectsToUnlock
             // 
@@ -392,6 +395,7 @@
             this.bunifuFlatButtonCancelSubjectInscription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButtonCancelSubjectInscription.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButtonCancelSubjectInscription.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButtonCancelSubjectInscription.Click += new System.EventHandler(this.bunifuFlatButtonCancelSubjectInscription_Click);
             // 
             // bunifuFlatButtonInscriptionHistory
             // 
@@ -469,6 +473,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentStatus";
             this.Text = "StudentStatus";
+            this.Load += new System.EventHandler(this.StudentStatus_Load);
             this.bunifuCards1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGridSubjects)).EndInit();
             this.SidebarSubjects.ResumeLayout(false);
