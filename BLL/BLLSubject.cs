@@ -18,6 +18,12 @@ namespace BLL
             return mapper.ListSubjects();
         }
 
+        public List<Subject> ListActiveSubjects()
+        {
+            MPPSubject mapper = new MPPSubject();
+            return mapper.ListActiveSubjects();
+        }
+
         public Subject ListSubjectBySubjectID(int subjectID)
         {
             MPPSubject mapper = new MPPSubject();
@@ -138,6 +144,21 @@ namespace BLL
             try
             {
                 mapper.CancelStudentInscription(inscription);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public bool ChangeSubjectStatus(Subject subject, Status status)
+        {
+            MPPSubject mapper = new MPPSubject();
+            try
+            {
+                mapper.ChangeSubjectStatus(subject, status);
                 return true;
             }
             catch (Exception ex)

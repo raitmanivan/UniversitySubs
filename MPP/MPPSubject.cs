@@ -15,6 +15,7 @@ namespace MPP
     {
         #region Querys...
         string QuerySelectAll = "Select * FROM Subject";
+        string QuerySelectActiveSubjects = "Select * FROM Subject WHERE Status = 'Active'";
         string QuerySelectSubjectBySubjectID = "Select * FROM Subject WHERE SubjectID = @SubjectID";
         string QuerySelectSubjectByName = "Select * FROM Subject WHERE Name = @Name";
         string QuerySelectStudentSubjects = "SELECT subject.SubjectID, subject.Name,subject.Year, studentsubject.Status, studentsubject.Qualification FROM Subject as subject, StudentSubject as studentsubject WHERE subject.SubjectID = studentsubject.SubjectID AND studentsubject.StudentID = @StudentID";
@@ -37,6 +38,7 @@ namespace MPP
         string QueryUpdateStudentSubjectStatus = "UPDATE StudentSubject SET Status = @Status, Qualification = NULL WHERE SubjectID = @SubjectID";
         string QueryUpdateStudentSubjectStatusWithQualification = "UPDATE StudentSubject SET Status = @Status, Qualification = @Qualification WHERE SubjectID = @SubjectID AND StudentID = @StudentID";
         string QueryUpdateStuddentInscription = "UPDATE StudentInscription SET Status = @Status WHERE InscriptionID = @InscriptionID AND StudentID = @StudentID AND SubjectID = @SubjectID";
+        string QueryUpdateSubjectStatus = "UPDATE Subject SET [Status] = @Status WHERE SubjectID = @SubjectID";
         #endregion
 
         public List<Subject> ListSubjects()
@@ -45,6 +47,32 @@ namespace MPP
             MPPStatus mapperStatus = new MPPStatus();
             DataTable dt = default(DataTable);
             dt = access.Read(QuerySelectAll, new List<Parameter>());
+
+            List<Subject> subjectList = new List<Subject>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    Subject subject = new Subject();
+                    subject.SubjectID = Convert.ToInt32(fila["SubjectID"]);
+                    subject.Name = fila["Name"].ToString();
+                    subject.Year = Convert.ToInt32(fila["Year"]);
+                    subject.Status = mapperStatus.ReturnStatus(fila["Status"].ToString());
+                    subject.PeriodType = fila["PeriodType"].ToString();
+                    subject.CorrespondingPeriod = Convert.ToInt32(fila["CorrespondingPeriod"]);
+                    subjectList.Add(subject);
+                }
+            }
+            return subjectList;
+        }
+
+        public List<Subject> ListActiveSubjects()
+        {
+            Access access = new Access();
+            MPPStatus mapperStatus = new MPPStatus();
+            DataTable dt = default(DataTable);
+            dt = access.Read(QuerySelectActiveSubjects, new List<Parameter>());
 
             List<Subject> subjectList = new List<Subject>();
 
@@ -305,7 +333,7 @@ namespace MPP
                 parameters.Add(new Parameter("@SubjectID", subject.SubjectID));
                 parameters.Add(new Parameter("@Name", subject.Name));
                 parameters.Add(new Parameter("@Year", subject.Year));
-                parameters.Add(new Parameter("@Status", subject.Status));
+                parameters.Add(new Parameter("@Status", subject.Status.status));
                 parameters.Add(new Parameter("@PeriodType", subject.PeriodType));
                 parameters.Add(new Parameter("@CorrespondingPeriod", subject.CorrespondingPeriod));
 
@@ -427,6 +455,23 @@ namespace MPP
             try
             {
                 access.Write(QueryUpdateStuddentInscription, parameters);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public void ChangeSubjectStatus(Subject subject, Status status)
+        {
+            Access access = new Access();
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@SubjectID", subject.SubjectID));
+            parameters.Add(new Parameter("@Status", status.status));
+            try
+            {
+                access.Write(QueryUpdateSubjectStatus, parameters);
             }
             catch (Exception ex)
             {
