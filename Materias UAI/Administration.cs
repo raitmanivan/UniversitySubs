@@ -82,8 +82,18 @@ namespace Materias_UAI
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Error al crear al estudiante", "Comunicarse con un administrador");
             }
+            #endregion
+
+            this.bunifuCustomLabelUser.Visible = false;
+            this.bunifuCustomLabelPassword.Visible = false;
+            this.bunifuCustomTextboxUsername.Visible = false;
+            this.bunifuCustomTextboxUsername.Clear();
+            this.bunifuCustomTextboxPassword.Visible = false;
+            this.bunifuCustomTextboxPassword.Clear();
+
         }
-        #endregion
+
+
 
         private void bunifuCustomDataGridSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -133,11 +143,27 @@ namespace Materias_UAI
             if (tabControl1.SelectedTab == tabControl1.TabPages["Asignaturas"])
             {
                 ListSubjects(false);
+
+                this.bunifuFlatButtonAllSubjects.Visible = true;
+                this.bunifuFlatButtonNewSubject.Visible = true;
+                this.bunifuFlatButtonConfirmNewSubject.Visible = false;
+                this.bunifuFlatButtonApprovedSubjects.Visible = true;
+                this.bunifuFlatButtonSubjectsInProgress.Visible = true;
+                this.bunifuiOSSwitchMoreDetails.Visible = true;
+                this.bunifuCustomLabelMoreDetails.Visible = true;
             }
             else if (tabControl1.SelectedTab == tabControl1.TabPages["Estudiantes"])
             {
                 this.bunifuCustomLabelSubjectSelectedTitle.Visible = false;
                 this.bunifuCustomLabelSubjectSelected.Visible = false;
+
+                this.bunifuFlatButtonNewSubject.Visible = false;
+                this.bunifuFlatButtonConfirmNewSubject.Visible = false;
+                this.bunifuFlatButtonApprovedSubjects.Visible = false;
+                this.bunifuFlatButtonSubjectsInProgress.Visible = false;
+                this.bunifuFlatButtonAllSubjects.Visible = false;
+                this.bunifuiOSSwitchMoreDetails.Visible = false;
+                this.bunifuCustomLabelMoreDetails.Visible = false;
             }
         }
 
@@ -147,6 +173,19 @@ namespace Materias_UAI
             bunifuCustomLabelSubjectSelected.Text = "";
             this.bunifuCustomLabelSubjectSelectedTitle.Visible = false;
             this.bunifuCustomLabelSubjectSelected.Visible = false;
+
+            this.bunifuFlatButtonAllSubjects.Visible = false;
+            this.bunifuFlatButtonNewSubject.Visible = false;
+            this.bunifuFlatButtonConfirmNewSubject.Visible = false;
+            this.bunifuFlatButtonApprovedSubjects.Visible = false;
+            this.bunifuFlatButtonSubjectsInProgress.Visible = false;
+
+            this.bunifuCustomLabelUser.Visible = false;
+            this.bunifuCustomLabelPassword.Visible = false;
+            this.bunifuCustomTextboxUsername.Visible = false;
+            this.bunifuCustomTextboxPassword.Visible = false;
+            this.bunifuiOSSwitchMoreDetails.Visible = false;
+            this.bunifuCustomLabelMoreDetails.Visible = false;
             #endregion
         }
 
@@ -179,6 +218,8 @@ namespace Materias_UAI
             bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].HeaderText = "Time";
             bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Width = 40;
             #endregion
+
+            bunifuFlatButtonConfirmNewSubject.Visible = true;
 
         }
 
@@ -216,7 +257,7 @@ namespace Materias_UAI
                 Console.WriteLine(ex.Message);
             }
 
-            //this.bunifuFlatButtonConfirmNewSubject.Visible = false;
+            this.bunifuFlatButtonConfirmNewSubject.Visible = false;
         }
 
         private void bunifuCustomDataGridSubjects_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -268,6 +309,63 @@ namespace Materias_UAI
             {
                 ListSubjects(false);
             }
+        }
+
+        private void bunifuTileButtonNewStudent_Click(object sender, EventArgs e)
+        {
+            #region Design...
+            this.bunifuCustomTextboxStudentID.Clear();
+            this.bunifuCustomTextboxUniversityID.Clear();
+            this.bunifuCustomTextboxNameAndSurname.Clear();
+            this.bunifuCustomTextboxEmail.Clear();
+
+            this.bunifuCustomTextboxStudentID.ReadOnly = false;
+            this.bunifuCustomTextboxUniversityID.ReadOnly = false;
+            this.bunifuCustomTextboxNameAndSurname.ReadOnly = false;
+            this.bunifuCustomTextboxEmail.ReadOnly = false;
+
+            this.bunifuCustomLabelUser.Visible = false;
+            this.bunifuCustomLabelPassword.Visible = false;
+            this.bunifuCustomTextboxUsername.Visible = false;
+            this.bunifuCustomTextboxUsername.Clear();
+            this.bunifuCustomTextboxPassword.Visible = false;
+            this.bunifuCustomTextboxPassword.Clear();
+            #endregion 
+        }
+
+        private void bunifuFlatButtonConfirmStudentData_Click(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(this.bunifuCustomTextboxNameAndSurname.Text))
+                {
+                    this.bunifuCustomTextboxStudentID.ReadOnly = true;
+                    this.bunifuCustomTextboxUniversityID.ReadOnly = true;
+                    this.bunifuCustomTextboxNameAndSurname.ReadOnly = true;
+                    this.bunifuCustomTextboxEmail.ReadOnly = true;
+
+                    this.bunifuCustomLabelUser.Visible = true;
+                    this.bunifuCustomLabelPassword.Visible = true;
+                    this.bunifuCustomTextboxUsername.Visible = true;
+                    this.bunifuCustomTextboxPassword.Visible = true;
+
+                try
+                {
+                    string[] label;
+                    label = this.bunifuCustomTextboxNameAndSurname.Text.Split(' ');
+                    string name = label[0];
+                    string surname = label[1];
+                    name = name.Substring(0, 1);
+                    this.bunifuCustomTextboxUsername.Text = name.ToLower() + surname.ToLower();
+                }
+                catch (Exception)
+                {
+                }
+
+                }
+        }
+
+        private void bunifuFlatButtonAllSubjects_Click(object sender, EventArgs e)
+        {
+            ListSubjects(false);
         }
     }
 }
