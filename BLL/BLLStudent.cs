@@ -17,18 +17,17 @@ namespace BLL
             return mapper.SearchStudentByUser(user);
         }
 
-        public bool CreateStudent(Student student)
+        public void CreateStudent(Student student)
         {
             MPPStudent mapper = new MPPStudent();
             try
             {
                 mapper.CreateStudent(student);
-                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return false;
+                throw ex;
             }
         }
 

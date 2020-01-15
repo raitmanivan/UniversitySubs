@@ -57,10 +57,40 @@ namespace MPP
             {
                 foreach (DataRow fila in dt.Rows)
                 {
-                    user.Username = fila["Username"].ToString();
+                    responseUser.Username = fila["Username"].ToString();
                 }
             }
-            return user;
+            try
+            {
+                responseUser.Role = this.SearchUserRole(responseUser);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return responseUser;
+        }
+
+        public string SearchUserRole(User user)
+        {
+            Access access = new Access();
+            List<Parameter> parameters = new List<Parameter>();
+            parameters.Add(new Parameter("@Username", user.Username));
+            string query = "SELECT r.Description FROM [Role] as r, [User] as u, [UserRole] as ur WHERE u.Username = @Username AND u.Username = ur.Username AND r.RoleID = ur.RoleID";
+            DataTable dt = default(DataTable);
+            dt = access.Read(query, parameters);
+
+            string role = "";
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                    role = fila["Description"].ToString();
+                }
+            }
+            return role;
         }
     }
 }

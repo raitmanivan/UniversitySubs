@@ -127,100 +127,13 @@ namespace Data
             {
                 Transaccion.Rollback();
                 Console.WriteLine(ex.Message);
+                CloseConnection();
+                throw ex;
             }
             finally
             {
                 CloseConnection();
             }
         }
-
-        /*
-        public void ExcecuteScript(string[] ScriptSplitter)
-        {
-            AbrirConexion();
-            SqlCommand cmd = new SqlCommand();
-            foreach (string str in ScriptSplitter)
-            {
-                using (cmd = con.CreateCommand())
-                {
-                    cmd.CommandText = str;
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            CerrarConexion();
-        }
-
-
-        public bool ProbarConexion()
-        {
-            try
-            {
-                AbrirConexion();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            if (con.State == ConnectionState.Open)
-            {
-
-                CerrarConexion();
-                return true;
-            }
-
-            else
-            {
-                CerrarConexion();
-                return false;
-            }
-        }
-
-
-
-        public int Escribir_W_Con_Parametros(string consulta, List<Parameter> parametros)
-        {
-            AbrirConexion();
-            Transaccion = con.BeginTransaction();
-            SqlCommand cmd = new SqlCommand(consulta, con, Transaccion);
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = con;
-
-            cmd.CommandText = consulta;
-            int response = 0;
-
-            try
-            {
-                if (parametros.Count != 0)
-                {
-                    foreach (Parameter item in parametros)
-                    {
-                        cmd.Parameters.AddWithValue(item.Nombre, item.Valor);
-                    }
-                }
-                response = Convert.ToInt32(cmd.ExecuteScalar());
-                Transaccion.Commit();
-            }
-            catch (SqlException sqle)
-            {
-                Transaccion.Rollback();
-                throw sqle;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error general: " + ex.Message);
-                Transaccion.Rollback();
-                throw ex;
-            }
-
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return response;
-        }
-
-
-    */
     }
 }

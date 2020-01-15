@@ -30,18 +30,37 @@ namespace Materias_UAI
         private void Subjects_Load(object sender, EventArgs e)
         {
             bunifuCustomDataGridSubjects.DataSource = null;
-            try
+            if (session.user != null)
             {
                 bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "All student subjects");
                 this.bunifuCustomLabelSubjectCount.Text = this.bunifuCustomDataGridSubjects.Rows.Count.ToString();
                 bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Subject"].Width = 300;
+
+                this.bunifuFlatButtonAllSubjects.Visible = true;
+                this.bunifuFlatButtonApprovedSubjects.Visible = true;
+                this.bunifuFlatButtonSubjectsInProgress.Visible = true;
+                this.bunifuFlatButtonSubjectsPendingExam.Visible = true;
+                this.bunifuDropdownSubjectYearPendings.Visible = true;
                 bunifuGradientPanelSubjectAdministration.Visible = false;
 
+                this.bunifuiOSSwitchMoreDetails.Visible = true;
+                this.bunifuCustomLabelDetails.Visible = true;
             }
-            catch (Exception)
+            else
             {
                 bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListSubjects();
+                this.bunifuCustomLabelSubjectCount.Text = this.bunifuCustomDataGridSubjects.Rows.Count.ToString();
+
+                this.bunifuFlatButtonAllSubjects.Visible = false;
+                this.bunifuFlatButtonApprovedSubjects.Visible = false;
+                this.bunifuFlatButtonSubjectsInProgress.Visible = false;
+                this.bunifuFlatButtonSubjectsPendingExam.Visible = false;
+                this.bunifuDropdownSubjectYearPendings.Visible = false;
+                this.bunifuFlatButtonSubjectAdministration.Visible = false;
+
+                this.bunifuiOSSwitchMoreDetails.Visible = false;
+                this.bunifuCustomLabelDetails.Visible = false;
             }
         }
 
@@ -61,8 +80,6 @@ namespace Materias_UAI
 
             this.bunifuDropdownSubjectYearPendings.NomalColor = Color.Tomato;
             this.bunifuDropdownSubjectYearPendings.onHoverColor = Color.Tomato;
-
-            ///
 
             this.bunifuFlatButtonSubjectAdministration.Normalcolor = Color.Tomato;
             this.bunifuFlatButtonSubjectAdministration.OnHovercolor = Color.Tomato;
