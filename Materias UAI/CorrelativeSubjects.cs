@@ -52,16 +52,17 @@ namespace Materias_UAI
         private void AllSubjects_Click(bool design)
         {
             bunifuCustomDataGridSubjects.DataSource = null;
-            try
+            if(session.user != null)
             {
                 bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListStudentSubjects(BusinessStudent.SearchStudentByUser(session.user), "All student subjects");
                 bunifuCustomDataGridSubjects.Columns["Student"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Status"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Qualification"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Subject"].Width = 600;
+                bunifuFlatButtonViewRemainingSubjects.Visible = true;
 
             }
-            catch (Exception)
+            else
             {
                 bunifuCustomDataGridSubjects.DataSource = BusinessSubject.ListSubjects();
                 bunifuCustomDataGridSubjects.Columns["SubjectID"].Visible = false;
@@ -70,7 +71,9 @@ namespace Materias_UAI
                 bunifuCustomDataGridSubjects.Columns["PeriodType"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["CorrespondingPeriod"].Visible = false;
                 bunifuCustomDataGridSubjects.Columns["Name"].Width = 600;
+                bunifuFlatButtonViewRemainingSubjects.Visible = false;
             }
+
             if(design)
             {
                 #region Design...

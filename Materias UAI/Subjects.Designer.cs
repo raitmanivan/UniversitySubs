@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subjects));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCustomDataGridSubjects = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -60,7 +60,7 @@
             this.bunifuCustomLabelSubjectCount = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuiOSSwitchMoreDetails = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCircleProgressbarPercentageToFinish = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabelDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelPercentage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextboxDetailsTittle = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuProgressBarAllSubjects = new Bunifu.Framework.UI.BunifuProgressBar();
@@ -94,19 +94,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -188,9 +188,9 @@
             this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
             this.bunifuMaterialTextbox1.HintText = "";
             this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextbox1.LineThickness = 3;
             this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(718, 49);
             this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
@@ -754,15 +754,15 @@
             this.bunifuCircleProgressbarPercentageToFinish.Value = 0;
             this.bunifuCircleProgressbarPercentageToFinish.Visible = false;
             // 
-            // bunifuCustomLabel3
+            // bunifuCustomLabelDetails
             // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(911, 466);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(54, 17);
-            this.bunifuCustomLabel3.TabIndex = 21;
-            this.bunifuCustomLabel3.Text = "Detalle";
+            this.bunifuCustomLabelDetails.AutoSize = true;
+            this.bunifuCustomLabelDetails.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuCustomLabelDetails.Location = new System.Drawing.Point(911, 466);
+            this.bunifuCustomLabelDetails.Name = "bunifuCustomLabelDetails";
+            this.bunifuCustomLabelDetails.Size = new System.Drawing.Size(54, 17);
+            this.bunifuCustomLabelDetails.TabIndex = 21;
+            this.bunifuCustomLabelDetails.Text = "Detalle";
             // 
             // bunifuCustomLabelPercentage
             // 
@@ -783,9 +783,9 @@
             this.bunifuMaterialTextboxDetailsTittle.HintForeColor = System.Drawing.Color.Empty;
             this.bunifuMaterialTextboxDetailsTittle.HintText = "";
             this.bunifuMaterialTextboxDetailsTittle.isPassword = false;
-            this.bunifuMaterialTextboxDetailsTittle.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineFocusedColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextboxDetailsTittle.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextboxDetailsTittle.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineMouseHoverColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextboxDetailsTittle.LineThickness = 3;
             this.bunifuMaterialTextboxDetailsTittle.Location = new System.Drawing.Point(718, 500);
             this.bunifuMaterialTextboxDetailsTittle.Margin = new System.Windows.Forms.Padding(4);
@@ -905,7 +905,7 @@
             this.Controls.Add(this.bunifuProgressBarAllSubjects);
             this.Controls.Add(this.bunifuMaterialTextboxDetailsTittle);
             this.Controls.Add(this.bunifuCustomLabelPercentage);
-            this.Controls.Add(this.bunifuCustomLabel3);
+            this.Controls.Add(this.bunifuCustomLabelDetails);
             this.Controls.Add(this.bunifuiOSSwitchMoreDetails);
             this.Controls.Add(this.bunifuCustomLabelSubjectCount);
             this.Controls.Add(this.bunifuCustomLabel2);
@@ -916,8 +916,8 @@
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuCircleProgressbarPercentageToFinish);
-            this.Controls.Add(this.bunifuGradientPanelSubjectAdministration);
             this.Controls.Add(this.SidebarSubjects);
+            this.Controls.Add(this.bunifuGradientPanelSubjectAdministration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Subjects";
             this.Text = "Subjects";
@@ -962,7 +962,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelSubjectCount;
         private Bunifu.Framework.UI.BunifuiOSSwitch bunifuiOSSwitchMoreDetails;
         private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbarPercentageToFinish;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabelPercentage;
         private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextboxDetailsTittle;
         private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBarAllSubjects;

@@ -56,7 +56,7 @@ namespace Materias_UAI
                     Session sm = Session.getInstance();
                     try
                     {
-                        user = BusinessUser.SearchUserByUsername(user);
+                          user = BusinessUser.SearchUserByUsername(user);
                     }
                     catch (Exception ex)
                     {

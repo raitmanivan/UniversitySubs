@@ -38,5 +38,11 @@ namespace BLL
             return mapper.SearchUserByUsername(user);
         }
 
+        public string SearchUserRole(User user)
+        {
+            MPPUser mapper = new MPPUser();
+            return mapper.SearchUserRole(user);
+        }
+
     }
 }

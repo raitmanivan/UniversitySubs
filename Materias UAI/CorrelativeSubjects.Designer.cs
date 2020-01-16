@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CorrelativeSubjects));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomLabelSubjectSelected = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabelSubjectSelectedTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -80,9 +80,9 @@
             this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
             this.bunifuMaterialTextbox1.HintText = "";
             this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextbox1.LineThickness = 3;
             this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(720, 49);
             this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(4);
@@ -157,19 +157,19 @@
             // 
             // bunifuCustomDataGridSubjects
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGridSubjects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bunifuCustomDataGridSubjects.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.bunifuCustomDataGridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bunifuCustomDataGridSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bunifuCustomDataGridSubjects.DoubleBuffered = true;
             this.bunifuCustomDataGridSubjects.EnableHeadersVisualStyles = false;
@@ -239,7 +239,7 @@
             this.bunifuFlatButtonSubjectsToUnlock.IconVisible = true;
             this.bunifuFlatButtonSubjectsToUnlock.IconZoom = 90D;
             this.bunifuFlatButtonSubjectsToUnlock.IsTab = false;
-            this.bunifuFlatButtonSubjectsToUnlock.Location = new System.Drawing.Point(39, 195);
+            this.bunifuFlatButtonSubjectsToUnlock.Location = new System.Drawing.Point(39, 145);
             this.bunifuFlatButtonSubjectsToUnlock.Name = "bunifuFlatButtonSubjectsToUnlock";
             this.bunifuFlatButtonSubjectsToUnlock.Normalcolor = System.Drawing.Color.Tomato;
             this.bunifuFlatButtonSubjectsToUnlock.OnHovercolor = System.Drawing.Color.Tomato;
@@ -274,7 +274,7 @@
             this.bunifuFlatButtonViewRemainingSubjects.IconVisible = true;
             this.bunifuFlatButtonViewRemainingSubjects.IconZoom = 90D;
             this.bunifuFlatButtonViewRemainingSubjects.IsTab = false;
-            this.bunifuFlatButtonViewRemainingSubjects.Location = new System.Drawing.Point(39, 145);
+            this.bunifuFlatButtonViewRemainingSubjects.Location = new System.Drawing.Point(39, 195);
             this.bunifuFlatButtonViewRemainingSubjects.Name = "bunifuFlatButtonViewRemainingSubjects";
             this.bunifuFlatButtonViewRemainingSubjects.Normalcolor = System.Drawing.Color.Tomato;
             this.bunifuFlatButtonViewRemainingSubjects.OnHovercolor = System.Drawing.Color.Tomato;
@@ -387,6 +387,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 784);
+            this.Controls.Add(this.SidebarSubjects);
             this.Controls.Add(this.bunifuCustomLabelSubjectSelected);
             this.Controls.Add(this.bunifuCustomLabelSubjectSelectedTitle);
             this.Controls.Add(this.bunifuMaterialTextbox1);
@@ -395,7 +396,6 @@
             this.Controls.Add(this.bunifuTextbox1);
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuSeparator1);
-            this.Controls.Add(this.SidebarSubjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CorrelativeSubjects";
             this.Text = "CorrelativeSubjects";

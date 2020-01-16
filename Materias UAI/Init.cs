@@ -148,7 +148,16 @@ namespace Materias_UAI
 
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
-            openChildForm(new Administration());
+            if(session.user != null)
+            {
+                if (session.user.Role == "Administrator")
+                    openChildForm(new Administration());
+                else
+                    MessageBox.Show("Usted no tiene el permiso para visualizar la pantalla de administración", "Contáctese con un Administrador");
+            }
+            else
+                MessageBox.Show("Por favor inicie sesión", "Información");
+
         }
 
         private void bunifuFlatButtonLOGOUT_Click(object sender, EventArgs e)
@@ -175,7 +184,10 @@ namespace Materias_UAI
 
         private void bunifuFlatButtonSTATUS_Click(object sender, EventArgs e)
         {
-            openChildForm(new StudentStatus());
+            if(session.user !=null)
+                openChildForm(new StudentStatus());
+            else
+                MessageBox.Show("Por favor inicie sesión", "Información");
         }
     }
 }
