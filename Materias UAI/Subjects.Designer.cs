@@ -783,9 +783,9 @@
             this.bunifuMaterialTextboxDetailsTittle.HintForeColor = System.Drawing.Color.Empty;
             this.bunifuMaterialTextboxDetailsTittle.HintText = "";
             this.bunifuMaterialTextboxDetailsTittle.isPassword = false;
-            this.bunifuMaterialTextboxDetailsTittle.LineFocusedColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineFocusedColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextboxDetailsTittle.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextboxDetailsTittle.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.bunifuMaterialTextboxDetailsTittle.LineMouseHoverColor = System.Drawing.Color.Tomato;
             this.bunifuMaterialTextboxDetailsTittle.LineThickness = 3;
             this.bunifuMaterialTextboxDetailsTittle.Location = new System.Drawing.Point(718, 500);
             this.bunifuMaterialTextboxDetailsTittle.Margin = new System.Windows.Forms.Padding(4);
