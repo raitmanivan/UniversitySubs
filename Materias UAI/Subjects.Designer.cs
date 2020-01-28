@@ -916,8 +916,8 @@
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.bunifuCircleProgressbarPercentageToFinish);
-            this.Controls.Add(this.SidebarSubjects);
             this.Controls.Add(this.bunifuGradientPanelSubjectAdministration);
+            this.Controls.Add(this.SidebarSubjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Subjects";
             this.Text = "Subjects";
